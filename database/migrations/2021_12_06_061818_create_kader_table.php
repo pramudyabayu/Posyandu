@@ -16,7 +16,7 @@ class CreateKaderTable extends Migration
         Schema::create('kader', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kader');
-            $table->string('no_hp');
+            $table->string('no_hp_kader');
             $table->string('alamat_kader');
             $table->timestamps();
         });

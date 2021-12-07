@@ -16,7 +16,7 @@ class CreateImunisasiTable extends Migration
         Schema::create('imunisasi', function (Blueprint $table) {
             $table->id();
             $table->date('tgl_imunisasi');
-            $table->foreignId('balita_id');
+            $table->foreignId('balita_id')->constrained('balita')->onDelete('cascade')->onUpdate('cascade');
             $table->string('jenis_imunisasi');
             $table->timestamps();
         });

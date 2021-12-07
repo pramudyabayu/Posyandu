@@ -15,7 +15,7 @@ class CreateKeuanganTable extends Migration
     {
         Schema::create('keuangan', function (Blueprint $table) {
             $table->id();
-            $table->date('tanggal');
+            $table->date('tgl_keuangan');
             $table->string('pemasukan');
             $table->string('pengeluaran');
             $table->text('catatan');
