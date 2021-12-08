@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JadwalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,10 @@ Route::get('/', function () {
     return view('dashboard.index');
 });
 
-Route::get('/pelayanan', function () {
-    return view('pelayanan.index');
+Route::get('/pengukuran', function () {
+    return view('pengukuran.index');
 });
+
+Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
+Route::POST('jadwalcreate','JadwalController@jadwalcreate')->name('jadwal.create');
 
