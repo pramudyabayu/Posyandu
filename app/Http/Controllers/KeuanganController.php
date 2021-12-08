@@ -123,7 +123,7 @@ class KeuanganController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'deskripsi'=>'required',
+            'catatan'=>'required',
         ]);
         
         Keuangan::where('id',$id)
