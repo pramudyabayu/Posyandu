@@ -18,4 +18,8 @@ class Jadwal extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 21962ee215f340f84c04ed1522f0eed04c616b60

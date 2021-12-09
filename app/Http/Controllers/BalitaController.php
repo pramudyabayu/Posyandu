@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Balita;
 use Illuminate\Http\Request;
 
 class BalitaController extends Controller
