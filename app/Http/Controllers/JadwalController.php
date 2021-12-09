@@ -2,16 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jadwal;
 use Illuminate\Http\Request;
 
 class JadwalController extends Controller
 {
+    //menampilkan view index
     public function index()
     {
         $jadwal = Jadwal::all();
         return view('jadwal.index',compact('jadwal'));
     }
 
+    //Menampilkan View Create
+    public function create()
+    {
+        $jadwal = jadwal::all();
+        return view('jadwal.create',compact('jadwal'));
+    }
+
+    //Melakukan Eksekusi Penyimpanan Ke Database
     public function store(Request $request)
     {
         $request->validate([
