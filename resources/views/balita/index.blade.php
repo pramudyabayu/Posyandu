@@ -171,10 +171,12 @@
                   <div class="mb-3">
                     <label for="jenis_kelamin" class="form-control-label">Jenis</label><br>
                     <div class="form-check form-check-inline">
-                        <label for="jenis_kelamin">
-                            <input type="radio" name="jenis_kelamin" value="Laki-laki" id="jenis_kelamin">Laki-Laki
-                            <input type="radio" name="jenis_kelamin" value="Perempuan" id="jenis_kelamin">Perempuan
-                        </label>
+                        <input class="form-check-input"type="radio" name="jenis_kelamin" value="Laki-laki" id="jenis_kelamin_laki">
+                        <label class="form-check-label" for="jenis_kelamin_laki">Laki-Laki</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input"type="radio" name="jenis_kelamin" value="Perempuan" id="jenis_kelamin_perempuan">
+                        <label class="form-check-label" for="jenis_kelamin_perempuan">Perempuan</label>
                     </div>
                   </div>
                   <div class="mb-3">
