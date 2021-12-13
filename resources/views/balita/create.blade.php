@@ -172,7 +172,6 @@
                   @error('rt')
                   <div class="invalid-feedback">
                       {{$message}}
-<<<<<<< HEAD
                   </div>
                   @enderror
                 </div>
@@ -185,20 +184,6 @@
                   </div>
                   @enderror
                 </div>
-=======
-                  </div>
-                  @enderror
-                </div>
-                <div class="mb-3">
-                  <label for="rw" class="form-control-label">RW</label>
-                  <input autocomplete="off" type="number" class="form-control @error('rw') is-invalid @enderror" name="rw"  id="rw" value="{{ old('rw') }}">
-                  @error('rw')
-                  <div class="invalid-feedback">
-                      {{$message}}
-                  </div>
-                  @enderror
-                </div>
->>>>>>> cc6ff5c3c67eae3260f9be4271d54a105ade2269
               </div>
             </div>
 
@@ -212,7 +197,6 @@
       </div>
   </div>
 </div>
-<<<<<<< HEAD
 
 
 <script type="text/javascript">
@@ -224,7 +208,3 @@
 
 @endsection
 
-=======
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
->>>>>>> cc6ff5c3c67eae3260f9be4271d54a105ade2269

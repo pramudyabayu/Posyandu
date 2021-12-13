@@ -28,10 +28,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard.index');
 Route::get('/balita', [BalitaController::class, 'index'])->name('balita.index');
-<<<<<<< HEAD
 Route::post('/balita', [BalitaController::class, 'store']);
-=======
->>>>>>> cc6ff5c3c67eae3260f9be4271d54a105ade2269
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
 Route::get('/kader', [KaderController::class, 'index'])->name('kader.index');
 Route::get('/pengukuran', [PengukuranController::class, 'index'])->name('pengukuran.index');
