@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pengukuran;
+use App\Models\Balita;
 use Illuminate\Http\Request;
 
 class PengukuranController extends Controller

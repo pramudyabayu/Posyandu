@@ -70,86 +70,132 @@
                     <input autocomplete="off" type="number" class="form-control @error('nik_balita') is-invalid @enderror" name="nik_balita"  id="nik_balita" value="{{ old('nik_balita') }}">
                     @error('nik_balita')
                     <div class="invalid-feedback">
-                        {{$message}}
-                    </div>
-                    @enderror
+                      {{$message}}
                   </div>
-                  <div class="mb-3">
-                    <label for="bb_lahir" class="form-control-label">BB Lahir</label>
-                    <input autocomplete="off" type="number" class="form-control @error('bb_lahir') is-invalid @enderror" name="bb_lahir"  id="bb_lahir" value="{{ old('bb_lahir') }}">
-                    @error('bb_lahir')
-                    <div class="invalid-feedback">
-                        {{$message}}
-                    </div>
-                    @enderror
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="bb_lahir" class="form-control-label">BB Lahir</label>
+                  <input autocomplete="off" type="number" class="form-control @error('bb_lahir') is-invalid @enderror" name="bb_lahir"  id="bb_lahir" value="{{ old('bb_lahir') }}">
+                  @error('bb_lahir')
+                  <div class="invalid-feedback">
+                      {{$message}}
                   </div>
-                  <div class="mb-3">
-                    <label for="tb_lahir" class="form-control-label">TB Lahir</label>
-                    <input autocomplete="off" type="number" class="form-control @error('tb_lahir') is-invalid @enderror" name="tb_lahir"  id="tb_lahir" value="{{ old('tb_lahir') }}">
-                    @error('tb_lahir')
-                    <div class="invalid-feedback">
-                        {{$message}}
-                    </div>
-                    @enderror
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="tb_lahir" class="form-control-label">TB Lahir</label>
+                  <input autocomplete="off" type="number" class="form-control @error('tb_lahir') is-invalid @enderror" name="tb_lahir"  id="tb_lahir" value="{{ old('tb_lahir') }}">
+                  @error('tb_lahir')
+                  <div class="invalid-feedback">
+                      {{$message}}
+                  </div>
+                  @enderror
+                </div>
+              </div>
+              <div class="col-6 right-form">
+                <div class="mb-3">
+                <label for="kia" class="form-control-label">KIA</label>
+                <div class="d-flex">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="kia" id="kia1" value="Ya" checked>
+                    <label class="form-check-label" for="kia1">Ya</label>
+                  </div>
+                  <div class="form-check mx-3">
+                    <input class="form-check-input" type="radio" name="kia" value="Tidak" id="kia2">
+                    <label class="form-check-label" for="kia2">Tidak</label>
                   </div>
                 </div>
-                <div class="col-6 right-form">
-                  <div class="mb-3">
-                  <label for="kia" class="form-control-label">KIA</label>
-                  <div class="d-flex">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="kia" id="kia1" value="Ya" checked>
-                      <label class="form-check-label" for="kia1">Ya</label>
-                    </div>
-                    <div class="form-check mx-3">
-                      <input class="form-check-input" type="radio" name="kia" value="Tidak" id="kia2">
-                      <label class="form-check-label" for="kia2">Tidak</label>
-                    </div>
+                  @error('kia')
+                  <div class="invalid-feedback">
+                      {{$message}}
                   </div>
-                    @error('kia')
-                    <div class="invalid-feedback">
-                        {{$message}}
-                    </div>
-                    @enderror
+                  @enderror
+                </div>
+                <div class="mb-3"> 
+                <label for="imd" class="form-control-label">IMD</label>
+                <div class="d-flex">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="imd" id="imd1" value="Ya" checked>
+                    <label class="form-check-label" for="imd1">Ya</label>
                   </div>
-                  <div class="mb-3">
-                  <label for="imd" class="form-control-label">IMD</label>
-                  <div class="d-flex">
-                    <div class="form-check">
-                      <input class="form-check-input" type="radio" name="imd" id="imd1" value="Ya" checked>
-                      <label class="form-check-label" for="imd1">Ya</label>
-                    </div>
-                    <div class="form-check mx-3">
-                      <input class="form-check-input" type="radio" name="imd" value="Tidak" id="imd2">
-                      <label class="form-check-label" for="imd2">Tidak</label>
-                    </div>
-                  </div>
-                    @error('imd')
-                    <div class="invalid-feedback">
-                        {{$message}}
-                    </div>
-                    @enderror
-                  </div>
-                  <div class="mb-3">
-                    <label for="nama_ortu" class="form-control-label">Nama Ortu</label>
-                    <input autocomplete="off" type="text" class="form-control @error('nama_balita') is-invalid @enderror" name="nama_balita"  id="nama_balita" value="{{ old('nama_balita') }}">
-                    @error('nama_balita')
-                    <div class="invalid-feedback">
-                        {{$message}}
-                    </div>
-                    @enderror
+                  <div class="form-check mx-3">
+                    <input class="form-check-input" type="radio" name="imd" value="Tidak" id="imd2">
+                    <label class="form-check-label" for="imd2">Tidak</label>
                   </div>
                 </div>
-
-        </div>
-
+                  @error('imd')
+                  <div class="invalid-feedback">
+                      {{$message}}
+                  </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="nama_ortu" class="form-control-label">Nama Ortu</label>
+                  <input autocomplete="off" type="text" class="form-control @error('nama_ortu') is-invalid @enderror" name="nama_ortu"  id="nama_ortu" value="{{ old('nama_ortu') }}">
+                  @error('nama_ortu')
+                  <div class="invalid-feedback">
+                      {{$message}}
+                  </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="nik_ortu" class="form-control-label">NIK Ortu</label>
+                  <input autocomplete="off" type="number" class="form-control @error('nik_ortu') is-invalid @enderror" name="nik_ortu"  id="nik_ortu" value="{{ old('nik_ortu') }}">
+                  @error('nik_ortu')
+                  <div class="invalid-feedback">
+                      {{$message}}
+                  </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="no_hp" class="form-control-label">No HP</label>
+                  <input autocomplete="off" type="number" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp"  id="no_hp" value="{{ old('no_hp') }}">
+                  @error('no_hp')
+                  <div class="invalid-feedback">
+                      {{$message}}
+                  </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="alamat" class="form-control-label">Alamat</label>
+                  <textarea autocomplete="off" type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat"  id="alamat" value="{{ old('alamat') }}"></textarea>
+                  @error('alamat')
+                  <div class="invalid-feedback">
+                      {{$message}}
+                  </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="rt" class="form-control-label">RT</label>
+                  <input autocomplete="off" type="number" class="form-control @error('rt') is-invalid @enderror" name="rt"  id="rt" value="{{ old('rt') }}">
+                  @error('rt')
+                  <div class="invalid-feedback">
+                      {{$message}}
+                  </div>
+                  @enderror
+                </div>
+                <div class="mb-3">
+                  <label for="rw" class="form-control-label">RW</label>
+                  <input autocomplete="off" type="number" class="form-control @error('rw') is-invalid @enderror" name="rw"  id="rw" value="{{ old('rw') }}">
+                  @error('rw')
+                  <div class="invalid-feedback">
+                      {{$message}}
+                  </div>
+                  @enderror
+                </div>
+              </div>
             </div>
-            
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Close</button>
-            </div>
-            
-        </div>
-    </div>
+
+          </div>
+          
+          <div class="modal-footer">
+              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Close</button>
+          </div>
+          
+      </div>
+  </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
