@@ -19,6 +19,7 @@
   <!-- Page plugins -->
   <!-- Argon CSS -->
   <link rel="stylesheet" href="{{asset('assets/css/argon.css?v=1.2.0')}}" type="text/css">
+  <link rel="stylesheet" href="{{asset('css/custom.css')}}" type="text/css">
 </head>
 
 <body>
@@ -78,11 +79,11 @@
                 <span class="nav-link-text">Keuangan</span>
               </a>
             </li>
-           
+
           </ul>
           <!-- Divider -->
           <hr class="my-3">
-          
+
           </ul>
         </div>
       </div>
@@ -142,9 +143,9 @@
                 <div class="dropdown-divider"></div>
                 <a href="{{ route('logout') }}" class="dropdown-item"
                 onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                
+
                   <i class="ni ni-user-run"></i>
-                  {{ __('Log Out') }} 
+                  {{ __('Log Out') }}
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                   </form>
@@ -158,7 +159,7 @@
 
     {{-- CONTENT --}}
     @yield('content')
-    
+
   <!-- Argon Scripts -->
   <!-- Core -->
   <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
