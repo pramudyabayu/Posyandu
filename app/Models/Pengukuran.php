@@ -12,13 +12,13 @@ class Pengukuran extends Model
     protected $primaryKey = "id";
     protected $fillable = [
             'tgl_pelayanan',
-    		'usia',
-    		'bb',
+        'usia',
+        'bb',
             'tb',
-    		'cara_ukur',
-    		'vitamin_a',
+        'cara_ukur',
+        'vitamin_a',
             'asi',
-    		'pmt_ke',
+        'pmt_ke',
             'sumber_pmt',
             'tgl_pemberian',    
     ];

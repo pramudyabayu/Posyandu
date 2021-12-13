@@ -12,8 +12,8 @@ class Imunisasi extends Model
     protected $primaryKey = "id";
     protected $fillable = [
             'tgl_imunisasi',
-    		'balita_id',
-    		'jenis_imunisasi',    
+        'balita_id',
+        'jenis_imunisasi',    
     ];
     public function balita(){
         return $this->belongsTo(Balita::class);

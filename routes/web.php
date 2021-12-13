@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\BalitaController;
 use App\Http\Controllers\JadwalController;
-use App\Http\Controllers\PengukuranController;
-use App\Http\Controllers\ImunisasiController;
 use App\Http\Controllers\KaderController;
+use App\Http\Controllers\imunisasiController;
+use App\Http\Controllers\pengukuranController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,19 +21,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard.index');
+    return view('welcome');
 });
 
+Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard.index');
 Route::get('/balita', [BalitaController::class, 'index'])->name('balita.index');
-
+Route::post('/balita', [BalitaController::class, 'store']);
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
-
-Route::get('/pengukuran', [PengukuranController::class, 'index'])->name('pengukuran.index');
-
-Route::get('/imunisasi', [ImunisasiController::class, 'index'])->name('imunisasi.index');
-
 Route::get('/kader', [KaderController::class, 'index'])->name('kader.index');
-
-
+Route::get('/pengukuran', [PengukuranController::class, 'index'])->name('pengukuran.index');
+Route::get('/imunisasi', [ImunisasiController::class, 'index'])->name('imunisasi.index');
 

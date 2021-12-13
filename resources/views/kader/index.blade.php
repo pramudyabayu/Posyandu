@@ -87,7 +87,7 @@
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                     <li class="page-item">
                       <a class="page-link" href="#">
-                      <i class="fas fa-angle-right"></i>
+                        <i class="fas fa-angle-right"></i>
                         <span class="sr-only">Next</span>
                       </a>
                     </li>

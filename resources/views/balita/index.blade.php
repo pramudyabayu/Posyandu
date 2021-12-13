@@ -14,6 +14,9 @@
                 </ol>
                 </nav>
             </div>
+            <div class="col-lg-6 col-5 text-right">
+                <a href="#" class="btn btn-sm btn-neutral">New</a>
+            </div>
             </div>
         </div>
         </div>
@@ -58,7 +61,7 @@
                         <th scope="col" class="sort" data-sort="alamat">Alamat</th>
                         <th scope="col" class="sort" data-sort="rt">RT</th>
                         <th scope="col" class="sort" data-sort="rw">RW</th>
-                        <th scope="col" class="sort" data-sort="aksi">Aksi</th>
+                        <th scope="col" class="sort" data-sort="rw"></th>
                     </tr>
                   </thead>
                   <tbody>
