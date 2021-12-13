@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Imunisasi;
 use Illuminate\Http\Request;
 
 class ImunisasiController extends Controller

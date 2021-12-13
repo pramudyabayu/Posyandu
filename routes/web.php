@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\BalitaController;
 use App\Http\Controllers\JadwalController;
+use App\Http\Controllers\PengukuranController;
+use App\Http\Controllers\ImunisasiController;
+use App\Http\Controllers\KaderController;
+use App\Http\Controllers\DashboardController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -20,16 +24,16 @@ Route::get('/', function () {
     return view('dashboard.index');
 });
 
-// Route::get('/balita', function () {
-//     return view('balita.index');
-// });
-
-Route::get('/pengukuran', function () {
-    return view('pengukuran.index');
-});
 
 Route::get('/balita', [BalitaController::class, 'index'])->name('balita.index');
-Route::get('/balita', [BalitaController::class, 'index'])->name('balita.create');
 
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
+
+Route::get('/pengukuran', [PengukuranController::class, 'index'])->name('pengukuran.index');
+
+Route::get('/imunisasi', [ImunisasiController::class, 'index'])->name('imunisasi.index');
+
+Route::get('/kader', [KaderController::class, 'index'])->name('kader.index');
+
+
 

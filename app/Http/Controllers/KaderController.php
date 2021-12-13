@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kader;
 use Illuminate\Http\Request;
 
 class KaderController extends Controller
