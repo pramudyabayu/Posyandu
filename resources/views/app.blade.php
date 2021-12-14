@@ -38,43 +38,43 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="/home">
+              <a class="nav-link {{ Request::segment(1) === 'home' ? 'active' : null }}" href="/home">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/balita">
+              <a class="nav-link {{ Request::segment(1) === 'balita' ? 'active' : null }}" href="/balita">
                 <i class="ni ni-single-02 text-orange"></i>
                 <span class="nav-link-text">Balita</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/pengukuran">
+              <a class="nav-link {{ Request::segment(1) === 'pengukuran' ? 'active' : null }}" href="/pengukuran">
                 <i class="ni ni-ruler-pencil text-orange"></i>
                 <span class="nav-link-text">Pengukuran</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/imunisasi">
+              <a class="nav-link {{ Request::segment(1) === 'imunisasi' ? 'active' : null }}" href="/imunisasi">
                 <i class="ni ni-ambulance text-orange"></i>
                 <span class="nav-link-text">Imunisasi</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/jadwal">
+              <a class="nav-link {{ Request::segment(1) === 'jadwal' ? 'active' : null }}" href="/jadwal">
                 <i class="ni ni-calendar-grid-58 text-orange"></i>
                 <span class="nav-link-text">Jadwal</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/kader">
+              <a class="nav-link {{ Request::segment(1) === 'kader' ? 'active' : null }}" href="/kader">
                 <i class="ni ni-circle-08 text-orange"></i>
                 <span class="nav-link-text">Kader</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/keuangan">
+              <a class="nav-link {{ Request::segment(1) === 'keuangan' ? 'active' : null }}" href="/keuangan">
                 <i class="ni ni-money-coins text-orange"></i>
                 <span class="nav-link-text">Keuangan</span>
               </a>
