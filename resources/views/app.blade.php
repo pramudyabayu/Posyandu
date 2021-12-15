@@ -73,13 +73,21 @@
                 <span class="nav-link-text">Kader</span>
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link {{ Request::segment(1) === 'keuangan' ? 'active' : null }}" href="/keuangan">
-                <i class="ni ni-money-coins text-orange"></i>
-                <span class="nav-link-text">Keuangan</span>
+            <li class="nav-item dropdown {{ Request::segment(1) === 'Keuangan' ? 'active' : null }}">
+              <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                  aria-expanded="false">
+                  <i class="ni ni-circle-08 text-orange"></i>
+                  <span>Keuangan</span>
               </a>
-            </li>
-
+              <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                  <a class="dropdown-item {{ Request::segment(1) === 'Keuangan' ? 'active' : null }}" href="/pemasukan">
+                    <i class="ni ni-circle-08 text-orange"></i> Pemasukan</a>
+                  <a class="dropdown-item {{ Request::segment(1) === 'Keuangan' ? 'active' : null }}" href="/pengeluaran">
+                    <i class="ni ni-circle-08 text-orange"></i> Pengeluaran</a>
+                  <a class="dropdown-item {{ Request::segment(1) === 'Keuangan' ? 'active' : null }}" href="/laporan">
+                    <i class="ni ni-circle-08 text-orange"></i> Laporan</a>
+              </div>
+          </li>
           </ul>
           <!-- Divider -->
           <hr class="my-3">

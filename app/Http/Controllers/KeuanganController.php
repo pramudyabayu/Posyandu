@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Keuangan;
 use Illuminate\Http\Request;
 
 class KeuanganController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //menyiapkan data untuk chart
@@ -19,7 +15,7 @@ class KeuanganController extends Controller
         $sampai = '';
         /* Variabel keuangan diisi dengan pemanggilan atau Query data dari Database */
         /* Paginate berfungsi untuk membatasi data yang ditampilkan */
-        $keuangan = Keuangan::orderBy('tanggal','asc')->paginate(10);
+        $keuangan = Keuangan::orderBy('created_at','ASC')->paginate(10);
         /* variabel $masuk diisi dengan sum dari kolom pemasukan atau menghitung jumlah total pada kolom pemasukan */
         $masuk = $keuangan->sum('pemasukan');
         /* variabel $keluar diisi dengan sum dari kolom pengeluaran atau menghitung jumlah total pada kolom pengeluaran */
@@ -47,12 +43,6 @@ class KeuanganController extends Controller
         return view('keuangan.index',compact('keuangan','masuk','keluar','saldo','filterTanggal','dari','sampai'));
     }
 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
@@ -77,7 +67,7 @@ class KeuanganController extends Controller
                 'pengeluaran'=>0,
                 'catatan'=>$request->catatan
             ]);
-            return redirect('/kasmasuk')->with('status','Data Kas Masuk berhasil ditambahkan!');
+            return redirect('/pemasukan')->with('status','Data Kas Masuk berhasil ditambahkan!');
         }
         else{
             Keuangan::create([
@@ -87,39 +77,20 @@ class KeuanganController extends Controller
                 'catatan'=>$request->catatan
                 
                 ]);
-                return redirect('/kaskeluar')->with('status','Data Kas Keluar berhasil ditambahkan!');
+                return redirect('/pengeluaran')->with('status','Data Kas Keluar berhasil ditambahkan!');
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Keuangan $keuangan)
     {
         return view('keuangan.edit',compact('keuangan'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -136,45 +107,39 @@ class KeuanganController extends Controller
         return redirect('/keuangan')->with('status','Data berhasil diupdate!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         Keuangan::destroy($id);
         return redirect('/keuangan')->with('status','Data berhasil dihapus!');
     }
 
-    public function kasmasuk(){
+    public function pemasukan(){
         $dari = '';
         $sampai = '';
         $masuk = Keuangan::where('pemasukan','!=' , 0)->orderBy('tanggal','ASC')->paginate(5);
         $jumlah = Keuangan::sum('pemasukan');
-        return view('keuangan.kasmasuk',compact('masuk','jumlah','dari','sampai'));
+        return view('keuangan.pemasukan',compact('masuk','jumlah','dari','sampai'));
     }
-    public function periodeKasMasuk(Request $request){
+    public function periodepemasukan(Request $request){
         $dari = $request->dari;
         $sampai = $request->sampai;
         $masuk =Keuangan::whereDate('tanggal','>=',$dari)->whereDate('tanggal','<=',$sampai)->where('pemasukan','!=' , 0)->orderBy('tanggal','ASC')->paginate(10);
         $jumlah = $masuk->sum('pemasukan');
-        return view('keuangan.kasmasuk',compact('jumlah','masuk','dari','sampai'));
+        return view('keuangan.pemasukan',compact('jumlah','masuk','dari','sampai'));
     }
-    public function periodeKasKeluar(Request $request){
+    public function periodepengeluaran(Request $request){
         $dari = $request->dari;
         $sampai = $request->sampai;
         $keluar =Keuangan::whereDate('tanggal','>=',$dari)->whereDate('tanggal','<=',$sampai)->where('pengeluaran','!=' , 0)->orderBy('tanggal','ASC')->paginate(10);
         $jumlah = $keluar->sum('pengeluaran');
-        return view('keuangan.kaskeluar',compact('jumlah','keluar','dari','sampai'));
+        return view('keuangan.pengeluaran',compact('jumlah','keluar','dari','sampai'));
     }
-    public function kaskeluar(){
+    public function pengeluaran(){
         $dari = '';
         $sampai = '';
         $keluar = Keuangan::where('pengeluaran','!=' , 0)->orderBy('tanggal','ASC')->paginate(5);
         $jumlah = Keuangan::sum('pengeluaran');
-        return view('keuangan.kaskeluar',compact('keluar','jumlah','dari','sampai'));
+        return view('keuangan.pengeluaran',compact('keluar','jumlah','dari','sampai'));
     }
     public function pdfMasuk(Request $request){
         $dari = $request->dari;

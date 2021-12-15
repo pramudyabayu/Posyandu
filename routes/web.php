@@ -3,8 +3,9 @@
 use App\Http\Controllers\BalitaController;
 use App\Http\Controllers\JadwalController;
 use App\Http\Controllers\KaderController;
-use App\Http\Controllers\imunisasiController;
-use App\Http\Controllers\pengukuranController;
+use App\Http\Controllers\ImunisasiController;
+use App\Http\Controllers\PengukuranController;
+use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -33,4 +34,9 @@ Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
 Route::get('/kader', [KaderController::class, 'index'])->name('kader.index');
 Route::get('/pengukuran', [PengukuranController::class, 'index'])->name('pengukuran.index');
 Route::get('/imunisasi', [ImunisasiController::class, 'index'])->name('imunisasi.index');
+Route::post('/imunisasi', [ImunisasiController::class, 'store']);
+
+Route::get('/pemasukan',[KeuanganController::class,'pemasukan']);
+Route::get('/pemasukan', [KeuanganController::class, 'index'])->name('keuangan.pemasukan');
+Route::post('/balita', [BalitaController::class, 'store']);
 

@@ -137,7 +137,7 @@
          <div class="modal-body">
            <div class="col-12 section">
              <div class="line mb-5"></div>
-              <form action="/dashboard/formulir" method="POST">
+              <form action="/balita" method="POST">
               @csrf
               <div class="col-12 d-flex form-container mb-5">
                 <div class="col-6 left-form">
@@ -198,7 +198,7 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label for="bb_lahir" class="form-control-label">BB Lahir</label>
+                  <label for="bb_lahir" class="form-control-label">Berat Badan Lahir</label>
                   <input autocomplete="off" type="number" class="form-control @error('bb_lahir') is-invalid @enderror" name="bb_lahir"  id="bb_lahir" value="{{ old('bb_lahir') }}">
                   @error('bb_lahir')
                   <div class="invalid-feedback">
@@ -207,7 +207,7 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                  <label for="tb_lahir" class="form-control-label">TB Lahir</label>
+                  <label for="tb_lahir" class="form-control-label">Tinggi Badan Lahir</label>
                   <input autocomplete="off" type="number" class="form-control @error('tb_lahir') is-invalid @enderror" name="tb_lahir"  id="tb_lahir" value="{{ old('tb_lahir') }}">
                   @error('tb_lahir')
                   <div class="invalid-feedback">
@@ -217,8 +217,8 @@
                 </div>
               </div>
               <div class="col-6 right-form">
-                <div class="mb-3">
-                <label for="kia" class="form-control-label">KIA</label>
+                <div class="mb-4">
+                <label for="kia" class="form-control-label">KIA (Kesehatan Ibu dan Anak)</label>
                 <div class="d-flex">
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="kia" id="kia1" value="Ya" checked>
@@ -236,7 +236,7 @@
                   @enderror
                 </div>
                 <div class="mb-3">
-                <label for="imd" class="form-control-label">IMD</label>
+                <label for="imd" class="form-control-label">IMD (Inisiasi Menyusu Dini)</label>
                 <div class="d-flex">
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="imd" id="imd1" value="Ya" checked>
@@ -313,8 +313,7 @@
           </div>
 
           <div class="modal-footer">
-              <button type="button" class="btn btn-primary">Save changes</button>
-              <button type="button" class="btn btn-link  ml-auto" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Save changes</button>
           </div>
          </div>
       </div>

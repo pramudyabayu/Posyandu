@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Balita;
 use App\Models\Imunisasi;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,8 @@ class ImunisasiController extends Controller
     public function index()
     {
         $imunisasi = Imunisasi::orderBy('created_at','ASC')->paginate(10);
-        return view('imunisasi.index', compact('imunisasi'));
+        $balita = Balita::all();
+        return view('imunisasi.index', compact('imunisasi', 'balita'));
     } 
 
     public function store(Request $request)
@@ -21,8 +23,8 @@ class ImunisasiController extends Controller
             'jenis_imunisasi'=>'required',
         ]);
 
-        Pengukuran::create($request->all());
-    	return redirect()->route('imunisasi.index')->with('status', 'Data Imunisasi Berhasil Ditambahkan!');
+        Imunisasi::create($request->all());
+      return redirect()->route('imunisasi.index')->with('status', 'Data Imunisasi Berhasil Ditambahkan!');
     }
 
     public function show($id)
@@ -32,8 +34,8 @@ class ImunisasiController extends Controller
 
     public function edit($id)
     {
-    	$imunisasi = Imunisasi::findOrFail($id);
-    	return view('imunisasi.edit', compact('imunisasi'));
+      $imunisasi = Imunisasi::findOrFail($id);
+      return view('imunisasi.edit', compact('imunisasi'));
     }
 
     public function update(Request $request, $id)

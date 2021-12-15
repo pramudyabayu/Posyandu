@@ -29,4 +29,7 @@ class Balita extends Model
             'rw',    
     ];
     
+    public function imunisasi(){
+        return $this->hasMany(Imunisasi::class);
+    }
 }
