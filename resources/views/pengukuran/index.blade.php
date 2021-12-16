@@ -142,13 +142,13 @@
                   <div class="mb-3">
                     <label for="inlineFormCustomSelect" class="form-control-label">Nama Balita</label>
                       <select name="balita_id" class="custom-select mr-sm-2 @error('balita_id') is-invalid @enderror" id="inlineFormCustomSelect">
-                      @foreach ($balita as $option)
-                          <option value="{{$option->id ?? null}}">{{$option->nama_balita ?? null}}</option>
-                      @endforeach
+                          @foreach ($balita as $option)
+                              <option value="{{$option->id ?? null}}">{{$option->nama_balita ?? null}}</option>
+                          @endforeach
                       </select>
                   </div>
                   <div class="mb-3">
-                    <label for="usia" class="form-control-label">Usia (Bulan)</label>
+                    <label for="usia" class="form-control-label">Usia Balita (bulan)</label>
                     <input autocomplete="off" type="number" class="form-control @error('usia') is-invalid @enderror" name="usia"  id="usia" value="{{ old('usia') }}">
                     @error('usia')
                     <div class="invalid-feedback">
@@ -174,27 +174,27 @@
                     </div>
                     @enderror
                   </div>
-                  <div class="mb-3">
+                  <div class="mb-3"> 
                     <label for="cara_ukur" class="form-control-label">Cara Ukur</label><br>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input"type="radio" name="cara_ukur" value="Berdiri" id="cara_ukur_berdiri">
-                        <label class="form-check-label" for="cara_ukur_berdiri">Berdiri</label>
+                        <input class="form-check-input"type="radio" name="cara_ukur" value="Berdiri" id="Berdiri">
+                        <label class="form-check-label" for="Berdiri">Berdiri</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input"type="radio" name="cara_ukur" value="Terlentang" id="cara_ukur_terlentang">
-                        <label class="form-check-label" for="cara_ukur_terlentang">Terlentang</label>
+                        <input class="form-check-input"type="radio" name="cara_ukur" value="Terlentang" id="Terlentang">
+                        <label class="form-check-label" for="Terlentang">Terlentang</label>
                     </div>
                   </div>
                 </div>
                 <div class="col-6 right-form">
-                  <div class="mb-4">
+                  <div class="mb-5">
                     <label for="vitamin_a" class="form-control-label">Vitamin A</label><br>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input"type="radio" name="vitamin_a" value="Ya" id="vitamin_a_1">
                         <label class="form-check-label" for="vitamin_a_1">Ya</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input"type="radio" name="kia" value="Tidak" id="vitamin_a_2">
+                        <input class="form-check-input"type="radio" name="vitamin_a" value="Tidak" id="vitamin_a_2">
                         <label class="form-check-label" for="vitamin_a_2">Tidak</label>
                     </div>
                   </div>
@@ -219,9 +219,10 @@
                     @enderror
                   </div>
                   <div class="mb-3">
-                    <label for="inlineFormCustomSelect" class="form-control-label">Sumber PMT</label>
+                    <label for="Sumber_pmt" class="form-control-label">Sumber PMT</label>
                     <select name="sumber_pmt" class="custom-select mr-sm-2 @error('sumber_pmt') is-invalid @enderror" id="inlineFormCustomSelect">
-                      <option selected>Swadaya</option>
+                      <option selected>-</option>
+                      <option>swadaya</option>
                       <option>Daerah</option>
                       <option>Pusat</option> 
                     </select>
