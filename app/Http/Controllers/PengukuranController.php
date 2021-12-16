@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pengukuran;
 use App\Models\Balita;
+use App\Models\Jadwal;
 use Illuminate\Http\Request;
 
 class PengukuranController extends Controller
@@ -11,7 +12,9 @@ class PengukuranController extends Controller
     public function index()
     {
         $pengukuran = Pengukuran::orderBy('created_at','ASC')->paginate(10);
-        return view('pengukuran.index', compact('pengukuran'));
+        $jadwal = Jadwal::all();
+        $balita = Balita::all();
+        return view('pengukuran.index', compact('pengukuran', 'jadwal', 'balita'));
     }
 
     public function store(Request $request)

@@ -28,15 +28,22 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard.index');
+
 Route::get('/balita', [BalitaController::class, 'index'])->name('balita.index');
 Route::post('/balita', [BalitaController::class, 'store']);
+
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
+Route::post('/jadwal', [JadwalController::class, 'store']);
+
 Route::get('/kader', [KaderController::class, 'index'])->name('kader.index');
+Route::post('/kader', [KaderController::class, 'store']);
+
 Route::get('/pengukuran', [PengukuranController::class, 'index'])->name('pengukuran.index');
+Route::post('/pengukuran', [PengukuranController::class, 'store']);
+
 Route::get('/imunisasi', [ImunisasiController::class, 'index'])->name('imunisasi.index');
 Route::post('/imunisasi', [ImunisasiController::class, 'store']);
 
+Route::get('/keuangan',[KeuanganController::class,'keuangan']);
 Route::get('/pemasukan',[KeuanganController::class,'pemasukan']);
-Route::get('/pemasukan', [KeuanganController::class, 'index'])->name('keuangan.pemasukan');
-Route::post('/balita', [BalitaController::class, 'store']);
-
+Route::get('/pengeluaran',[KeuanganController::class,'pengeluaran']);

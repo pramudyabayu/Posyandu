@@ -32,33 +32,20 @@ class KeuanganController extends Controller
         $filterTanggal = Keuangan::all();
         $dari = $request->dari;
         $sampai = $request->sampai;
-        // $keuangan = Keuangan::paginate(10);
         $keuangan =Keuangan::whereDate('tanggal','>=',$dari)->whereDate('tanggal','<=',$sampai)->orderBy('tanggal','asc')->paginate(10);
         $masuk = $keuangan->sum('pemasukan');
         $keluar = $keuangan->sum('pengeluaran');
         $saldo = $masuk -$keluar;
 
-
-        
-        return view('keuangan.index',compact('keuangan','masuk','keluar','saldo','filterTanggal','dari','sampai'));
+        return view('keuangan.laporan',compact('keuangan','masuk','keluar','saldo','filterTanggal','dari','sampai'));
     }
 
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
             'tanggal'=>'required',
-            'catatan'=>'required'
+            'catatan'=>'required',
         ]);
         if($request->pemasukan == !null){
             Keuangan::create([
@@ -79,11 +66,6 @@ class KeuanganController extends Controller
                 ]);
                 return redirect('/pengeluaran')->with('status','Data Kas Keluar berhasil ditambahkan!');
         }
-    }
-
-    public function show($id)
-    {
-        //
     }
 
     public function edit(Keuangan $keuangan)
@@ -112,67 +94,3 @@ class KeuanganController extends Controller
         Keuangan::destroy($id);
         return redirect('/keuangan')->with('status','Data berhasil dihapus!');
     }
-
-    public function pemasukan(){
-        $dari = '';
-        $sampai = '';
-        $masuk = Keuangan::where('pemasukan','!=' , 0)->orderBy('tanggal','ASC')->paginate(5);
-        $jumlah = Keuangan::sum('pemasukan');
-        return view('keuangan.pemasukan',compact('masuk','jumlah','dari','sampai'));
-    }
-    public function periodepemasukan(Request $request){
-        $dari = $request->dari;
-        $sampai = $request->sampai;
-        $masuk =Keuangan::whereDate('tanggal','>=',$dari)->whereDate('tanggal','<=',$sampai)->where('pemasukan','!=' , 0)->orderBy('tanggal','ASC')->paginate(10);
-        $jumlah = $masuk->sum('pemasukan');
-        return view('keuangan.pemasukan',compact('jumlah','masuk','dari','sampai'));
-    }
-    public function periodepengeluaran(Request $request){
-        $dari = $request->dari;
-        $sampai = $request->sampai;
-        $keluar =Keuangan::whereDate('tanggal','>=',$dari)->whereDate('tanggal','<=',$sampai)->where('pengeluaran','!=' , 0)->orderBy('tanggal','ASC')->paginate(10);
-        $jumlah = $keluar->sum('pengeluaran');
-        return view('keuangan.pengeluaran',compact('jumlah','keluar','dari','sampai'));
-    }
-    public function pengeluaran(){
-        $dari = '';
-        $sampai = '';
-        $keluar = Keuangan::where('pengeluaran','!=' , 0)->orderBy('tanggal','ASC')->paginate(5);
-        $jumlah = Keuangan::sum('pengeluaran');
-        return view('keuangan.pengeluaran',compact('keluar','jumlah','dari','sampai'));
-    }
-    public function pdfMasuk(Request $request){
-        $dari = $request->dari;
-        $sampai = $request->sampai;
-        $masuk = Keuangan::whereDate('tanggal','>=',$dari)->whereDate('tanggal','<=',$sampai)->where('pemasukan','!=' , 0)->orderBy('tanggal','ASC')->paginate(100);
-        $jumlah = $masuk->sum('pemasukan');
-        $pdf = PDF::loadview('keuangan.cetakpdf.cetakpdfmasuk',compact('jumlah','masuk','dari','sampai'));
-        return $pdf->download($dari.'_'.$sampai.'_laporan_kas_masuk.pdf'); 
-    }
-    public function pdfKeluar(Request $request){
-        $dari = $request->dari;
-        $sampai = $request->sampai;
-        $keluar = Keuangan::whereDate('tanggal','>=',$dari)->whereDate('tanggal','<=',$sampai)->where('pengeluaran','!=' , 0)->orderBy('tanggal','ASC')->paginate(100);
-        $jumlah = $keluar->sum('pengeluaran');
-        $pdf = PDF::loadview('keuangan.cetakpdf.cetakpdfkeluar',compact('jumlah','keluar','dari','sampai'));
-        return $pdf->download($dari.'_'.$sampai.'_laporan_kas_keluar.pdf'); 
-    }
-    public function pdfRekap(Request $request){
-        $dari = $request->dari;
-        $sampai = $request->sampai;
-        $total = Keuangan::whereDate('tanggal','>=',$dari)->whereDate('tanggal','<=',$sampai)->orderBy('tanggal','ASC')->paginate(100);
-        $masuk = $total->sum('pemasukan');
-        $keluar = $total->sum('pengeluaran');
-        $saldo = $masuk -$keluar;
-        $pdf = PDF::loadview('keuangan.cetakpdf.cetakpdf',compact('total','masuk','keluar','saldo','dari','sampai'))->setPaper('a4', 'landscape');
-        return $pdf->download($dari.'_'.$sampai.'_laporan_rekapitulasi.pdf'); 
-    }
-    public function cetakRekap(){
-        $rekap = Keuangan::paginate(100);
-        $masuk = $rekap->sum('pemasukan');
-        $keluar = $rekap->sum('pengeluaran');
-        $saldo = $masuk -$keluar;
-        $pdf = PDF::loadview('keuangan.cetakpdf.cetakrekap',compact('rekap','masuk','keluar','saldo'))->setPaper('a4', 'landscape');
-        return $pdf->download('All_laporan_rekapitulasi.pdf'); 
-    }
-}

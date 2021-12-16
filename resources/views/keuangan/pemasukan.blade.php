@@ -39,9 +39,9 @@
                 <table class="table align-items-center table-flush">
                   <thead class="thead-light">
                     <tr>
-                      <th scope="col" class="sort" data-sort="tanggal">Nama</th>
-                      <th scope="col" class="sort" data-sort="catatan">No Hp</th>
-                      <th scope="col" class="sort" data-sort="pemasuka">Alamat</th>
+                      <th scope="col" class="sort" data-sort="tanggal">Tanggal</th>
+                      <th scope="col" class="sort" data-sort="catatan">Catatan</th>
+                      <th scope="col" class="sort" data-sort="pemasuka">Pemasukan</th>
                       <th scope="col"></th>
                     </tr>
                   </thead>
@@ -87,15 +87,3 @@
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                     <li class="page-item">
                       <a class="page-link" href="#">
-                        <i class="fas fa-angle-right"></i>
-                        <span class="sr-only">Next</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-
-            </div>
-          </div>
-        </div>
-@endsection

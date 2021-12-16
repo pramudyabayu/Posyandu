@@ -1,5 +1,6 @@
 @extends('app')
 @section('content')
+
     <div class="header bg-primary pb-6">
         <div class="container-fluid">
         <div class="header-body">
@@ -30,7 +31,7 @@
                           <h3 class="mb-0">Kader Posyandu</h3>
                         </div>
                         <div class="col-4 text-right">
-                          <a href="/kader/create" class="btn btn-sm btn-primary bi bi-plus-circle" data-toggle="tooltip" data-placement="left" title="Tambah Nama Kader"></a>
+                          <a href="#modal-kader" class="btn btn-sm btn-primary bi bi-plus-circle" data-toggle="modal" data-placement="left" title="Tambah Data Kader"></a>
                         </div>
                       </div>
                     </div>
@@ -39,6 +40,7 @@
                 <table class="table align-items-center table-flush">
                   <thead class="thead-light">
                     <tr>
+                      <th scope="col" class="sort" data-sort="no">No</th>
                       <th scope="col" class="sort" data-sort="nama_kader">Nama</th>
                       <th scope="col" class="sort" data-sort="no_hp_kader">No Hp</th>
                       <th scope="col" class="sort" data-sort="alamat_kader">Alamat</th>
@@ -98,4 +100,58 @@
             </div>
           </div>
         </div>
+
+        <div class="modal fade" id="modal-kader" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h6 class="modal-title" id="modal-title-default">Tambah Data Kader</h6>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+          </div>
+         <div class="modal-body">
+           <div class="col-12 section">
+             <div class="line mb-5"></div>
+              <form action="/kader" method="POST">
+              @csrf
+                  <div class="mb-3">
+                    <label for="nama_kader" class="form-control-label">Nama</label>
+                    <input autocomplete="off" type="text" class="form-control @error('nama_kader') is-invalid @enderror" name="nama_kader"  id="nama_kader" value="{{ old('nama_kader') }}">
+                    @error('nama_kader')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <label for="no_hp_kader" class="form-control-label">No HP</label>
+                    <input autocomplete="off" type="number" class="form-control @error('no_hp_kader') is-invalid @enderror" name="no_hp_kader"  id="no_hp_kader" value="{{ old('no_hp_kader') }}">
+                    @error('no_hp_kader')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
+                  </div>
+                  <div class="mb-3">
+                    <label for="alamat_kader" class="form-control-label">Alamat</label>
+                    <textarea autocomplete="off" type="text" class="form-control @error('alamat_kader') is-invalid @enderror" name="alamat_kader"  id="alamat_kader" value="{{ old('alamat_kader') }}"></textarea>
+                    @error('alamat_kader')
+                    <div class="invalid-feedback">
+                        {{$message}}
+                    </div>
+                    @enderror
+                  </div>
+                  
+                </div>
+            </div>
+
+          <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Save</button>
+              
+          </div>
+         </div>
+      </div>
+  </div>
+</div>
 @endsection

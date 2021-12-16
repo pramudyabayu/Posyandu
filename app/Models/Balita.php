@@ -11,7 +11,7 @@ class Balita extends Model
     protected $table= "balita";
     protected $primaryKey = "id";
     protected $fillable = [
-        'nama_balita',
+            'nama_balita',
     		'anak_ke',
     		'tgl_lahir',
             'jenis_kelamin',
@@ -29,7 +29,8 @@ class Balita extends Model
             'rw',    
     ];
     
-    public function imunisasi(){
+    public function imunisasi()
+    {
         return $this->hasMany(Imunisasi::class);
     }
 }
