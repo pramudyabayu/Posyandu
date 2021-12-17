@@ -11,14 +11,15 @@ class Pengukuran extends Model
     protected $table= "pengukuran";
     protected $primaryKey = "id";
     protected $fillable = [
-            'tgl_pelayanan',
-        'usia',
-        'bb',
+            'jadwal_id',
+            'balita_id',
+            'usia',
+            'bb',
             'tb',
-        'cara_ukur',
-        'vitamin_a',
+            'cara_ukur',
+            'vitamin_a',
             'asi',
-        'pmt_ke',
+            'pmt_ke',
             'sumber_pmt',
             'tgl_pemberian',    
     ];

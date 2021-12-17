@@ -94,3 +94,4 @@ class KeuanganController extends Controller
         Keuangan::destroy($id);
         return redirect('/keuangan')->with('status','Data berhasil dihapus!');
     }
+}

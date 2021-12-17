@@ -11,11 +11,11 @@ class CreatePengukuranTable extends Migration
      *
      * @return void
      */
-    public function up()
+     public function up()
     {
         Schema::create('pengukuran', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('jadwal_id');
+            $table->foreignId('jadwal_id')->constrained('jadwal')->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('balita_id')->constrained('balita')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('usia');
             $table->float('bb');

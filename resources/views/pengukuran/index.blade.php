@@ -61,7 +61,7 @@
                 @foreach($pengukuran as $key => $item)
                         <tr>
                             <th scope="row">{{ $key + $pengukuran->firstItem()}}</th>
-                                <td>{{$item->jadwal->tgl_pelayanan}}</td>
+                                <td>{{date('d F Y',strtotime($item->tgl_pelayanan))}}</td>
                                 <td>{{$item->balita->nama_balita}}</td>
                                 <td>{{$item->usia}}</td>
                                 <td>{{$item->bb}}</td>
@@ -72,7 +72,7 @@
                                 <td>{{$item->pmt_ke}}</td>
                                 <td>{{$item->sumber_pmt}}</td>
                                 <td>{{$item->tgl_pemberian}}</td>            
-                                <td><form action="/balita/{{$item->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
+                                <td><form action="/pengukuran/{{$item->id}}" method="post" class="d-inline" onsubmit="return confirm('Yakin ingin menghapus data ini?')">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="btn btn-danger" ><i class="bi bi-trash"></i></button>
@@ -119,7 +119,7 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h6 class="modal-title" id="modal-title-default">Tambah Data Balita</h6>
+            <h6 class="modal-title" id="modal-title-default">Tambah Data Pengukuran</h6>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">×</span>
               </button>
@@ -127,7 +127,7 @@
          <div class="modal-body">
            <div class="col-12 section">
              <div class="line mb-5"></div>
-              <form action="/balita" method="POST">
+              <form action="/pengukuran" method="POST">
               @csrf
               <div class="col-12 d-flex form-container mb-5">
                 <div class="col-6 left-form">
