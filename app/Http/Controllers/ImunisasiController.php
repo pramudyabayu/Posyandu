@@ -24,7 +24,7 @@ class ImunisasiController extends Controller
         ]);
 
         Imunisasi::create($request->all());
-      return redirect()->route('imunisasi.index')->with('status', 'Data Imunisasi Berhasil Ditambahkan!');
+      return redirect()->route('imunisasi.index')->with('success', 'Data Imunisasi Berhasil Ditambahkan!');
     }
 
     public function show($id)
@@ -52,12 +52,12 @@ class ImunisasiController extends Controller
             'jenis_imunisasi'=>$request->jenis_imunisasi,
             
         ]);
-        return redirect('/imunisasi')->with('status','Data Imunisasi berhasil diupdate!');
+        return redirect('/imunisasi')->with('success','Data Imunisasi berhasil diupdate!');
     }
 
     public function destroy($id)
     {
         Imunisasi::destroy($id);
-        return redirect('/imunisasi')->with('status','Data Imunisasi berhasil dihapus!');
+        return redirect('/imunisasi')->with('success','Data Imunisasi berhasil dihapus!');
     }
 }

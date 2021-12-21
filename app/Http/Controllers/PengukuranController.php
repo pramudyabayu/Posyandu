@@ -34,7 +34,7 @@ class PengukuranController extends Controller
         ]);
 
         Pengukuran::create($request->all());
-    	return redirect()->route('pengukuran.index')->with('status', 'Data Pengukuran Berhasil Ditambahkan!');
+    	return redirect()->route('pengukuran.index')->with('success', 'Data Pengukuran Berhasil Ditambahkan!');
     }
 
     public function show($id)
@@ -79,14 +79,14 @@ class PengukuranController extends Controller
             'catatan'=>$request->catatan,
 
         ]);
-        return redirect('/pengukuran')->with('status','Data Pengukuran berhasil diupdate!');
+        return redirect('/pengukuran')->with('success','Data Pengukuran berhasil diupdate!');
 
     }
 
     public function destroy($id)
     {
         Pengukuran::destroy($id);
-        return redirect('/pengukuran')->with('status','Data Pengukuran berhasil dihapus!');
+        return redirect('/pengukuran')->with('success','Data Pengukuran berhasil dihapus!');
     }
 
 

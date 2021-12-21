@@ -31,8 +31,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/balita', [BalitaController::class, 'index'])->name('balita.index');
 Route::post('/balita', [BalitaController::class, 'store']);
-Route::get('balita/edit/{id?}', [BalitaController::class, 'edit']);
-
 
 
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
@@ -51,3 +49,9 @@ Route::post('/imunisasi', [ImunisasiController::class, 'store']);
 Route::get('/keuangan',[KeuanganController::class,'keuangan']);
 Route::get('/pemasukan',[KeuanganController::class,'pemasukan']);
 Route::get('/pengeluaran',[KeuanganController::class,'pengeluaran']);
+
+Route::get('/balita/{balita}/delete', [BalitaController::class, 'destroy']);
+Route::get('/imunisasi/{imunisasi}/delete', [ImunisasiController::class, 'destroy']);
+Route::get('/jadwal/{jadwal}/delete', [JadwalController::class, 'destroy']);
+Route::get('/kader/{kader}/delete', [KaderController::class, 'destroy']);
+Route::get('/pengukuran/{pengukuran}/delete', [PengukuranController::class, 'destroy']);

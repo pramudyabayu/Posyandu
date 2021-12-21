@@ -22,7 +22,7 @@ class KaderController extends Controller
             ]);
             
             $kader = kader::create($request->all());
-            return redirect('/kader')->with('status','Data Kader Posyandu berhasil ditambahkan!');
+            return redirect('/kader')->with('success','Data Kader Posyandu berhasil ditambahkan!');
         }
     
         public function edit($id)
@@ -46,13 +46,13 @@ class KaderController extends Controller
                         'alamat_kader'=>$request->alamat_kader,
                         
                     ]);
-            return redirect('/kader')->with('status','Data Kader Posyandu berhasil diupdate!');
+            return redirect('/kader')->with('success','Data Kader Posyandu berhasil diupdate!');
         }
     
         public function destroy($id)
         {
             kader::destroy($id);
-            return redirect('/kader')->with('status','Data Kader Posyandu berhasil dihapus!');
+            return redirect('/kader')->with('success','Data Kader Posyandu berhasil dihapus!');
         }
     }
     

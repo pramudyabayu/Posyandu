@@ -48,13 +48,13 @@ class JadwalController extends Controller
                     'tempat_pelayanan'=>$request->tempat_pelayanan,
                     
                 ]);
-        return redirect('/jadwal')->with('status','Data Jadwal Pelayanan berhasil diupdate!');
+        return redirect('/jadwal')->with('success','Data Jadwal Pelayanan berhasil diupdate!');
     }
 
     public function destroy($id)
     {
         Jadwal::destroy($id);
-        return redirect('/jadwal')->with('status','Data Jadwal Pelayanan berhasil dihapus!');
+        return redirect('/jadwal')->with('success','Data Jadwal Pelayanan berhasil dihapus!');
     }
 
 }

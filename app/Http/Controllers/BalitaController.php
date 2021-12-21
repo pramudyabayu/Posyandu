@@ -39,7 +39,7 @@ class BalitaController extends Controller
     	]);
 		
     	Balita::create($request->all());
-    	return redirect()->route('balita.index')->with('status', 'Data Balita Berhasil Ditambahkan!');
+    	return redirect()->route('balita.index')->with('success', 'Data Balita Berhasil Ditambahkan!');
     }
 
     public function show($id)
@@ -93,12 +93,12 @@ class BalitaController extends Controller
                 'rw'=>$request->rw,
     		]);
 
-    	return redirect('/balita')->with('status', 'Data Balita Berhasil Diupdate!');
+    	return redirect('/balita')->with('success', 'Data Balita Berhasil Diupdate!');
     }
 
     public function destroy($id)
     {
     	Balita::destroy($id);
-    	return redirect('/balita')->with('status', 'Data Balita Berhasil Dihapus!');
+    	return redirect('/balita')->with('success', 'Data Balita Berhasil Dihapus!');
     }
 }
