@@ -168,6 +168,9 @@
     {{-- CONTENT --}}
     @yield('content')
 
+    @include('sweetalert::alert')
+
+
   <!-- Argon Scripts -->
   <!-- Core -->
   <script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>

@@ -25,7 +25,7 @@ class JadwalController extends Controller
         ]);
         
         $jadwal = Jadwal::create($request->all());
-        return redirect('/jadwal')->with('status','Data Jadwal Pelayanan berhasil ditambahkan!');
+        return redirect('/jadwal')->with('success','Jadwal berhasil ditambahkan!');
     }
     public function edit($id)
     {
