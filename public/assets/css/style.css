@@ -118,14 +118,14 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
-  background: rgba(1, 4, 136, 0.9);
+  background: rgba(94, 114, 228, 0.90);
 }
 #header.header-transparent {
   background: transparent;
 }
 #header.header-scrolled {
-  background: rgba(1, 4, 136, 0.9);
-  height: 60px;
+  background: rgba(59, 71, 137, 0.99);
+  height: 50px;
 }
 #header .logo h1 {
   font-size: 28px;
@@ -351,13 +351,13 @@ h1, h2, h3, h4, h5, h6 {
 --------------------------------------------------------------*/
 #hero {
   width: 100%;
-  background: url("../img/hero-bg.jpg");
+  background: url("../img/hero3.jpg");
   position: relative;
   padding: 120px 0 0 0;
 }
 #hero:before {
   content: "";
-  background: rgba(2, 5, 161, 0.91);
+  background: rgba(94, 114, 228, 0.70);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -390,10 +390,10 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 50px;
   transition: 0.5s;
   color: #fff;
-  background: #1acc8d;
+  background: #FF5677;
 }
 #hero .btn-get-started:hover {
-  background: #17b57d;
+  background: #EC255A;
 }
 #hero .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
@@ -571,7 +571,7 @@ section {
   font-weight: 700;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
-  color: #010483;
+  color: #5e72e4;
 }
 
 /*--------------------------------------------------------------
