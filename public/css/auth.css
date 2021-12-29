@@ -56,7 +56,7 @@ body {
 .left-side {
     display: flex;
     flex-direction: column;
-    background: #45B4D2;
+    background: rgba(94, 114, 228, 0.90);
     height: 100%;
     padding: 130px 40px 40px;
 }
