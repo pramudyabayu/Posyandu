@@ -11,6 +11,7 @@ class Pengukuran extends Model
     protected $table= "pengukuran";
     protected $primaryKey = "id";
     protected $fillable = [
+            'id',
             'jadwal_id',
             'balita_id',
             'usia',
@@ -21,7 +22,7 @@ class Pengukuran extends Model
             'asi',
             'pmt_ke',
             'sumber_pmt',
-            'tgl_pemberian',    
+            'tgl_pemberian',
     ];
     public function balita(){
         return $this->belongsTo(Balita::class);
@@ -29,5 +30,8 @@ class Pengukuran extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
-    
+    public function jadwal(){
+        return $this->belongsTo(Jadwal::class);
+    }
+
 }

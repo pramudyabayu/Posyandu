@@ -187,7 +187,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 2px;
   bottom: 3px;
   left: 30px;
-  background-color: #1acc8d;
+  background-color: #ff5677;
   visibility: hidden;
   width: 0px;
   transition: all 0.3s ease-in-out 0s;
@@ -373,7 +373,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero h1 span {
   color: #fff;
-  border-bottom: 4px solid #1acc8d;
+  border-bottom: 4px solid #ff5677;
 }
 #hero h2 {
   color: rgba(255, 255, 255, 0.8);
@@ -561,7 +561,7 @@ section {
   width: 120px;
   height: 1px;
   display: inline-block;
-  background: #1acc8d;
+  background: #ff5677;
   margin: 4px 10px;
 }
 .section-title p {
@@ -649,17 +649,17 @@ section {
   justify-content: center;
   width: 64px;
   height: 64px;
-  border: 2px solid #7ceec6;
+  border: 2px solid #ff5677;
   border-radius: 50px;
   transition: 0.5s;
 }
 .about .icon-box .icon i {
-  color: #1acc8d;
+  color: #ff5677;
   font-size: 32px;
 }
 .about .icon-box:hover .icon {
-  background: #1acc8d;
-  border-color: #1acc8d;
+  background: #ff5677;
+  border-color: #ff5677;
 }
 .about .icon-box:hover .icon i {
   color: #fff;
@@ -681,6 +681,7 @@ section {
   margin-left: 85px;
   line-height: 24px;
   font-size: 14px;
+  text-align: justify;
 }
 .about .video-box {
   background: url("../img/about.png") center center no-repeat;
@@ -793,11 +794,11 @@ section {
   line-height: 1;
 }
 .features .icon-box h3 {
-  font-weight: 700;
+  font-weight: 500;
   margin: 0;
   padding: 0;
-  line-height: 1;
-  font-size: 16px;
+  line-height: 2;
+  font-size: 18px;
 }
 .features .icon-box h3 a {
   color: #010483;
@@ -844,14 +845,14 @@ section {
 .counts .count-box span {
   font-size: 36px;
   display: block;
-  font-weight: 600;
+  font-weight: 700;
   color: #010483;
 }
 .counts .count-box p {
   padding: 0;
   margin: 0;
   font-family: "Montserrat", sans-serif;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 /*--------------------------------------------------------------

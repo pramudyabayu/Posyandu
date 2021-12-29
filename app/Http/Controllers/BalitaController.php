@@ -12,22 +12,22 @@ class BalitaController extends Controller
     {
         $balita = Balita::orderBy('created_at','ASC')->paginate(10);
         return view('balita.index', compact('balita'));
-    } 
+    }
 
 
     //Melakukan Eksekusi Penyimpanan Ke Database
     public function store(Request $request)
     {
-		
-    	$request->validate([
-    		'nama_balita'=> 'required',
-    		'anak_ke'=> 'required',
-    		'tgl_lahir'=> 'required',
+
+        $request->validate([
+            'nama_balita'=> 'required',
+            'anak_ke'=> 'required',
+            'tgl_lahir'=> 'required',
             'jenis_kelamin'=> 'required',
-    		'no_kk'=> 'required',
-    		'nik_balita'=> 'required',
+            'no_kk'=> 'required',
+            'nik_balita'=> 'required',
             'bb_lahir'=> 'required',
-    		'tb_lahir'=> 'required',
+            'tb_lahir'=> 'required',
             'kia'=> 'required',
             'imd'=> 'required',
             'nama_ortu'=> 'required',
@@ -36,34 +36,34 @@ class BalitaController extends Controller
             'alamat'=> 'required',
             'rt'=> 'required',
             'rw'=> 'required'
-    	]);
-		
-    	Balita::create($request->all());
-    	return redirect()->route('balita.index')->with('success', 'Data Balita Berhasil Ditambahkan!');
+        ]);
+
+        Balita::create($request->all());
+        return redirect()->route('balita.index')->with('success', 'Data Balita Berhasil Ditambahkan!');
     }
 
     public function show($id)
     {
-    	//
+        //
     }
 
     public function edit($id)
     {
-    	$balita = Balita::findOrFail($id);
-    	return view('balita.edit', compact('balita'));
+        $balita = Balita::findOrFail($id);
+        return view('balita.edit', compact('balita', 'id'));
     }
 
     public function update(Request $request, $id)
     {
-    	$request->validate([
-    		'nama_balita'=> 'required',
-    		'anak_ke'=> 'required',
-    		'tgl_lahir'=> 'required',
+        $request->validate([
+            'nama_balita'=> 'required',
+            'anak_ke'=> 'required',
+            'tgl_lahir'=> 'required',
             'jenis_kelamin'=> 'required',
-    		'no_kk'=> 'required',
-    		'nik_balita'=> 'required',
+            'no_kk'=> 'required',
+            'nik_balita'=> 'required',
             'bb_lahir'=> 'required',
-    		'tb_lahir'=> 'required',
+            'tb_lahir'=> 'required',
             'kia'=> 'required',
             'imd'=> 'required',
             'nama_ortu'=> 'required',
@@ -72,9 +72,9 @@ class BalitaController extends Controller
             'alamat'=> 'required',
             'rt'=> 'required',
             'rw'=> 'required',
-    	]);
-    	Balita::where('id', $id)
-    		->update([
+        ]);
+        Balita::where('id', $id)
+            ->update([
                 'nama_balita'=>$request->nama_balita,
                 'anak_ke'=>$request->anak_ke,
                 'tgl_lahir'=>$request->tgl_lahir,
@@ -91,14 +91,14 @@ class BalitaController extends Controller
                 'alamat'=>$request->alamat,
                 'rt'=>$request->rt,
                 'rw'=>$request->rw,
-    		]);
+            ]);
 
-    	return redirect('/balita')->with('success', 'Data Balita Berhasil Diupdate!');
+        return redirect('/balita')->with('success', 'Data Balita Berhasil Diupdate!');
     }
 
     public function destroy($id)
     {
-    	Balita::destroy($id);
-    	return redirect('/balita')->with('success', 'Data Balita Berhasil Dihapus!');
+        Balita::destroy($id);
+        return redirect('/balita')->with('success', 'Data Balita Berhasil Dihapus!');
     }
 }

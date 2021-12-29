@@ -81,7 +81,7 @@
                 <td>{{$item->rw}}</td>
                 <td>
                 @csrf
-                  <a href="/balita/{{$item->id}}/delete" onclick="return "
+                  <a href="/balita/{{$item->id}}/delete" onclick="return sweetDel(event)"
                       class="btn btn-danger"><i class="bi bi-trash"></i></a>
                   <a href="#modal-balita-edit" class="btn btn-primary" data-toggle="modal" data-placement="left" ><i class="bi bi-pencil-square"></i></a>
                 </td>
@@ -211,7 +211,7 @@
                     @error('tb_lahir')
                       <div class="invalid-feedback">
                           {{$message}}
-                      </div> 
+                      </div>
                     @enderror
                 </div>
               </div>

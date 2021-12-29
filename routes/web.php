@@ -41,6 +41,8 @@ Route::post('/kader', [KaderController::class, 'store']);
 
 Route::get('/pengukuran', [PengukuranController::class, 'index'])->name('pengukuran.index');
 Route::post('/pengukuran', [PengukuranController::class, 'store']);
+Route::get('/pengukuran/{id}/edit', [PengukuranController::class, 'edit']);
+Route::post('/pengukuran/update', [PengukuranController::class, 'update']);
 
 Route::get('/imunisasi', [ImunisasiController::class, 'index'])->name('imunisasi.index');
 Route::post('/imunisasi', [ImunisasiController::class, 'store']);
