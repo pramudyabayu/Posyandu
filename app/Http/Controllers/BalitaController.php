@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace App\Http\Controllers;
 
 use App\Models\Balita;
@@ -49,13 +49,101 @@ class BalitaController extends Controller
 
     public function edit($id)
     {
-        $balita = Balita::findOrFail($id);
-        return view('balita.edit', compact('balita', 'id'));
+        $balita = Balita::where('id', $id)->first();
+
+        //mengambil value input radio jenis_kelamin
+        $jenis_kelamin = $balita->jenis_kelamin;
+        $output_jenis_kelamin = '';
+        if ($jenis_kelamin === "Laki-Laki") {
+            $output_jenis_kelamin .= '
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"type="radio" name="jenis_kelamin" value="Laki-Laki" id="e_jenis_kelamin_laki" checked>
+                    <label class="form-check-label" for="e_jenis_kelamin_laki">Laki-Laki</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"type="radio" name="jenis_kelamin" value="perempuan" id="e_jenis_kelamin_perempuan">
+                    <label class="form-check-label" for="e_jenis_kelamin_perempuan">Perempuan</label>
+                </div>
+            ';
+        } else if($jenis_kelamin === "Perempuan") {
+            $output_jenis_kelamin .= '
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"type="radio" name="jenis_kelamin" value="Laki-Laki" id="e_jenis_kelamin_laki">
+                    <label class="form-check-label" for="e_jenis_kelamin_laki">Laki-Laki</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"type="radio" name="jenis_kelamin" value="Perempuan" id="e_jenis_kelamin_perempuan" checked>
+                    <label class="form-check-label" for="e_jenis_kelamin_perempuan">Perempuan</label>
+                </div>
+            ';
+        }
+
+        //mengambil value input radio kia
+        $kia = $balita->kia;
+        $output_kia = '';
+        if ($kia === "Ya") {
+            $output_kia .= '
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"type="radio" name="kia" value="Ya" id="e_kia1" checked>
+                    <label class="form-check-label" for="e_kia1">Ya</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"type="radio" name="kia" value="Tidak" id="e_kia2">
+                    <label class="form-check-label" for="e_kia2">Tidak</label>
+                </div>
+            ';
+        } else if($kia === "Tidak") {
+            $output_kia .= '
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"type="radio" name="kia" value="Ya" id="e_kia1">
+                    <label class="form-check-label" for="e_kia1">Ya</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"type="radio" name="kia" value="Tidak" id="e_kia2" checked>
+                    <label class="form-check-label" for="e_kia2">Tidak</label>
+                </div>
+            ';
+        }
+
+        //mengambil value input radio imd
+        $imd = $balita->imd;
+        $output_imd = '';
+        if ($imd === "Ya") {
+            $output_imd .= '
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"type="radio" name="imd" value="Ya" id="e_imd1" checked>
+                    <label class="form-check-label" for="e_imd1">Ya</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"type="radio" name="imd" value="Tidak" id="e_imd2">
+                    <label class="form-check-label" for="e_imd2">Tidak</label>
+                </div>
+            ';
+        } else if($imd === "Tidak") {
+            $output_imd .= '
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"type="radio" name="imd" value="Ya" id="e_imd1">
+                    <label class="form-check-label" for="e_imd1">Ya</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input"type="radio" name="imd" value="Tidak" id="e_imd2" checked>
+                    <label class="form-check-label" for="e_imd2">Tidak</label>
+                </div>
+            ';
+        }
+
+        return response()->json([
+            'data' => $balita,
+            'output_jenis_kelamin' => $output_jenis_kelamin,
+            'output_kia' => $output_kia,
+            'output_imd' => $output_imd,
+        ]);
+
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $request->validate([
+        $validasi = $request->validate([
             'nama_balita'=> 'required',
             'anak_ke'=> 'required',
             'tgl_lahir'=> 'required',
@@ -71,29 +159,30 @@ class BalitaController extends Controller
             'no_hp'=> 'required',
             'alamat'=> 'required',
             'rt'=> 'required',
-            'rw'=> 'required',
+            'rw'=> 'required'
         ]);
-        Balita::where('id', $id)
-            ->update([
-                'nama_balita'=>$request->nama_balita,
-                'anak_ke'=>$request->anak_ke,
-                'tgl_lahir'=>$request->tgl_lahir,
-                'jenis_kelamin'=>$request->jenis_kelamin,
-                'no_kk'=>$request->no_kk,
-                'nik_balita'=>$request->nik_balita,
-                'bb_lahir'=>$request->bb_lahir,
-                'tb_lahir'=>$request->tb_lahir,
-                'kia'=>$request->kia,
-                'imd'=>$request->imd,
-                'nama_ortu'=>$request->nama_ortu,
-                'nik_ortu'=>$request->nik_ortu,
-                'no_hp'=>$request->no_hp,
-                'alamat'=>$request->alamat,
-                'rt'=>$request->rt,
-                'rw'=>$request->rw,
-            ]);
+        Balita::where('id', $request->id)
+            ->update($validasi);
+            // [
+            //     'nama_balita'=>$request->nama_balita,
+            //     'anak_ke'=>$request->anak_ke,
+            //     'tgl_lahir'=>$request->tgl_lahir,
+            //     'jenis_kelamin'=>$request->jenis_kelamin,
+            //     'no_kk'=>$request->no_kk,
+            //     'nik_balita'=>$request->nik_balita,
+            //     'bb_lahir'=>$request->bb_lahir,
+            //     'tb_lahir'=>$request->tb_lahir,
+            //     'kia'=>$request->kia,
+            //     'imd'=>$request->imd,
+            //     'nama_ortu'=>$request->nama_ortu,
+            //     'nik_ortu'=>$request->nik_ortu,
+            //     'no_hp'=>$request->no_hp,
+            //     'alamat'=>$request->alamat,
+            //     'rt'=>$request->rt,
+            //     'rw'=>$request->rw,
+            // ]);
 
-        return redirect('/balita')->with('success', 'Data Balita Berhasil Diupdate!');
+        return redirect()->route ('balita.index')->with('success', 'Data Balita Berhasil Diupdate!');
     }
 
     public function destroy($id)

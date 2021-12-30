@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace App\Http\Controllers;
 
 use App\Models\Pengukuran;
@@ -16,7 +16,7 @@ class PengukuranController extends Controller
         $balita = Balita::all();
         return view('pengukuran.index', compact('pengukuran', 'jadwal', 'balita'));
     }
-
+ 
     public function store(Request $request)
     {
         $request->validate([

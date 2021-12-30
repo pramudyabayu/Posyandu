@@ -31,6 +31,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/balita', [BalitaController::class, 'index'])->name('balita.index');
 Route::post('/balita', [BalitaController::class, 'store']);
+Route::get('/balita/{id}/edit', [BalitaController::class, 'edit']);
+Route::post('/balita/update', [BalitaController::class, 'update']);
 
 
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');

@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-
+ 
 <div class="header bg-primary pb-6">
   <div class="container-fluid">
     <div class="header-body">
@@ -29,8 +29,6 @@
             </div>
             <div class="col-4 text-right">
                 <button id="#btn-add" data-target="#modal-pengukuran-create" class="btn-add btn btn-primary" data-toggle="modal" data-placement="left" title="Tambah Data Pengukuran"><i class="bi bi-plus-circle"></i></button>
-
-              {{-- <a href="#modal-pengukuran" class="btn btn-sm btn-primary" data-toggle="modal" data-placement="left" title="Tambah Data Pengukuran"></a> --}}
             </div>
           </div>
         </div>
