@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 
+ 
 * {
     padding: 0;
     margin: 0;
@@ -8,7 +9,7 @@
 
 body {
     color: #7F817F;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .alert {
@@ -83,13 +84,19 @@ body {
 .left-side .heading h1 {
     color: #fff;
     font-family: 'Baloo 2', cursive;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .left-side .posyandu img {
     margin-left: 50px;
     height: 500px;
     width: 500px;
+}
+
+@media screen and (max-width: 768px) {
+  [data-aos-delay] {
+    transition-delay: 0 !important;
+  }
 }
 
 .right-side {

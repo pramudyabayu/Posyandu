@@ -15,10 +15,12 @@
             <div class="ornament ornament-1"></div>
             <div class="ornament ornament-2"></div>
             <div class="heading">
-                <h1>Posyandu Kabupaten Klaten 2021</h1>
+                <h1>Selamat Datang di SIPOSYANDU<br>
+                    Kabupaten Klaten 2022
+                </h1>
             </div>
             <div class="posyandu">
-                <img src="{{asset('img/posyandu.jpg')}}" alt="">
+                <img src="{{asset('img/posyandu.png')}}" alt="">
             </div>
         </div>
         <div class="col-sm-12 col-md-6 right-side">

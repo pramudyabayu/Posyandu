@@ -71,8 +71,10 @@
       <div class="row justify-content-between">
         <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
           <div data-aos="zoom-out">
-            <h1>Build Your Landing Page With <span>Bootstlander</span></h1>
-            <h2>We are team of talented designers making websites with Bootstrap</h2>
+            <h1>Ayo Jangan Ragu ke <span>Posyandu</span></h1>
+            <h2>Balita Sehat, Generasi Penyelamat<br>
+              <b>Posyandu Sahabat Masyarakat</b>
+            </h2>
             <div class="text-center text-lg-start">
               <a href="#about" class="btn-get-started scrollto">Get Started</a>
             </div>
@@ -113,7 +115,7 @@
           </div>
 
           <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
-            <h3>Profile POSYANDU</h3>
+            <h3>POSYANDU</h3>
             <p>Posyandu merupakan salah satu bentuk Upaya Kesehatan Bersumberdaya Masyarakat (UKBM) yang dikelola dari, oleh, untuk, dan bersama masyarakat, 
               guna memberdayakan masyarakat dan memberikan kemudahan kepada masyarakat dalam memperoleh pelayanan kesehatan dasar.</p>
             
@@ -264,19 +266,6 @@
           <ul>
 
             <li data-aos="fade-up" >
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Apa saja yang perlu dilakukan apabila balita diare?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  1. Teruskan pemberian ASI bila bayi masih menyusui. <br>
-                  2. Beri air matang, cairan makanan (air sayur, air tajin atau oralit). <br>
-                  3. Teruskan pemberian makanan. <br>
-                  4. Cegah diare dengan cara minum air matang, cuci tangan pakai sabunsebelum dan sesudah makan dan sesudah buang air besar. <br>
-                  5. Rujuk ke Puskesmas apabila ada tanda-tanda anak tidak membaik dalam 2 hari, buang air besar encer berkali-kali, muntah berulang ulang, rasa haus yang nyata, demam, makan atau minum sedikit, dan ada darah dalam tinja. <br>
-                </p>
-              </div>
-            </li>
-            
-            <li data-aos="fade-up" data-aos-delay="100">
               <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Apa saja yang perlu dilakukan apabila balita batuk?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-1" class="collapse" data-bs-parent=".faq-list">
                 <p>
@@ -285,6 +274,20 @@
                   3. Pada anak umur 1 tahun keatas, beri kecap manis ditambah madu atau air jeruk. <br>
                   4. Bersihkan hidung agar tidak terganggu pernafasannya. <br>
                   5. Rujuk ke Puskesmas apabila ada tanda-tanda nafas cepat, ada tanda sukar bernafas, dan batuk pilek dengan panas tinggi <br>
+                </p>
+              </div>
+              
+            </li>
+            
+            <li data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Apa saja yang perlu dilakukan apabila balita diare?<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  1. Teruskan pemberian ASI bila bayi masih menyusui. <br>
+                  2. Beri air matang, cairan makanan (air sayur, air tajin atau oralit). <br>
+                  3. Teruskan pemberian makanan. <br>
+                  4. Cegah diare dengan cara minum air matang, cuci tangan pakai sabunsebelum dan sesudah makan dan sesudah buang air besar. <br>
+                  5. Rujuk ke Puskesmas apabila ada tanda-tanda anak tidak membaik dalam 2 hari, buang air besar encer berkali-kali, muntah berulang ulang, rasa haus yang nyata, demam, makan atau minum sedikit, dan ada darah dalam tinja. <br>
                 </p>
               </div>
             </li>
