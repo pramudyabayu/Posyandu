@@ -2,7 +2,7 @@
 @section('title' , 'Register | Posyandu Klaten')
 @section('content')
 
-<h1>Daftar</h1>
+<h1>Register</h1>
 <p>Silahkan isi formulir dibawah ini untuk<br>melakukan pendaftaran akun</p>
 
 <div class="form mt-5">

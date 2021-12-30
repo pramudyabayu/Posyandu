@@ -30,13 +30,13 @@ body {
 }
 
 .btn-primary {
-    background: #7469AD;
-    border: 1px solid #7469AD;
+    background: #5e72e4;
+    border: 1px solid #5e72e4;
 }
 
 .btn-primary:hover {
-    background: #45B4D2;
-    border: 1px solid #45B4D2;
+    background: rgba(59, 71, 137, 0.99);
+    border: 1px solid rgba(59, 71, 137, 0.99);
 }
 
 .btn .btn-text {
@@ -109,9 +109,9 @@ body {
 }
 
 .right-side h1 {
-    color: #7469AD;
+    color: #5e72e4;
     font-family: 'Baloo 2', cursive;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .right-side p {
