@@ -1,5 +1,5 @@
 <?php
- 
+  
 namespace App\Http\Controllers;
 
 use App\Models\Pengukuran;
@@ -44,7 +44,6 @@ class PengukuranController extends Controller
 
     public function edit($id)
     {
-
         $balita = Balita::all();
         $jadwal = Jadwal::all();
         $pengukuran = Pengukuran::where('id', $id)->first();
@@ -175,7 +174,7 @@ class PengukuranController extends Controller
     }
 
     public function update(Request $request)
-    {
+    { 
         $validasi = $request->validate([
             'jadwal_id' => 'required',
             'balita_id'=>'required',
@@ -191,22 +190,6 @@ class PengukuranController extends Controller
         ]);
         Pengukuran::where('id', $request->id)
         ->update($validasi);
-        // Pengukuran::where('id',$request->id)
-        // ->update([
-        //     'jadwal_id'=>$request->jadwal_id,
-        //     'balita_id'=>$request->balita_id,
-        //     'usia'=>$request->usia,
-        //     'bb'=>$request->bb,
-        //     'tb'=>$request->tb,
-        //     'cara_ukur'=>$request->cara_ukur,
-        //     'vitamin_a'=>$request->vitamin_a,
-        //     'asi'=>$request->asi,
-        //     'pmt_ke'=>$request->pmt_ke,
-        //     'sumber_pmt'=>$request->sumber_pmt,
-        //     'tgl_pemberian'=>$request->tgl_pemberian,
-        //     'catatan'=>$request->catatan,
-
-        // ]);
         return redirect()->route('pengukuran.index')->with('success', 'Data Pengukuran Berhasil Diupdate!');
 
     }

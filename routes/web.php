@@ -33,29 +33,37 @@ Route::get('/balita', [BalitaController::class, 'index'])->name('balita.index');
 Route::post('/balita', [BalitaController::class, 'store']);
 Route::get('/balita/{id}/edit', [BalitaController::class, 'edit']);
 Route::post('/balita/update', [BalitaController::class, 'update']);
+Route::get('/balita/{balita}/delete', [BalitaController::class, 'destroy']);
 
 
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
 Route::post('/jadwal', [JadwalController::class, 'store']);
+Route::get('/jadwal/{id}/edit', [JadwalController::class, 'edit']);
+Route::post('/jadwal/update', [JadwalController::class, 'update']);
+Route::get('/jadwal/{jadwal}/delete', [JadwalController::class, 'destroy']);
 
 Route::get('/kader', [KaderController::class, 'index'])->name('kader.index');
 Route::post('/kader', [KaderController::class, 'store']);
+Route::get('/kader/{id}/edit', [KaderController::class, 'edit']);
+Route::post('/kader/update', [KaderController::class, 'update']);
+Route::get('/kader/{kader}/delete', [KaderController::class, 'destroy']);
 
 Route::get('/pengukuran', [PengukuranController::class, 'index'])->name('pengukuran.index');
 Route::post('/pengukuran', [PengukuranController::class, 'store']);
 Route::get('/pengukuran/{id}/edit', [PengukuranController::class, 'edit']);
 Route::post('/pengukuran/update', [PengukuranController::class, 'update']);
+Route::get('/pengukuran/{pengukuran}/delete', [PengukuranController::class, 'destroy']);
 
 Route::get('/imunisasi', [ImunisasiController::class, 'index'])->name('imunisasi.index');
 Route::post('/imunisasi', [ImunisasiController::class, 'store']);
+Route::get('/imunisasi/{id}/edit', [ImunisasiController::class, 'edit']);
+Route::post('/imunisasi/update', [ImunisasiController::class, 'update']);
+Route::get('/imunisasi/{imunisasi}/delete', [ImunisasiController::class, 'destroy']);
 
 
 Route::get('/keuangan',[KeuanganController::class,'keuangan']);
 Route::get('/pemasukan',[KeuanganController::class,'pemasukan']);
 Route::get('/pengeluaran',[KeuanganController::class,'pengeluaran']);
 
-Route::get('/balita/{balita}/delete', [BalitaController::class, 'destroy']);
-Route::get('/imunisasi/{imunisasi}/delete', [ImunisasiController::class, 'destroy']);
-Route::get('/jadwal/{jadwal}/delete', [JadwalController::class, 'destroy']);
-Route::get('/kader/{kader}/delete', [KaderController::class, 'destroy']);
-Route::get('/pengukuran/{pengukuran}/delete', [PengukuranController::class, 'destroy']);
+
+

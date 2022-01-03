@@ -11,6 +11,7 @@ class Imunisasi extends Model
     protected $table= "imunisasi";
     protected $primaryKey = "id";
     protected $fillable = [
+        'id',
         'tgl_imunisasi',
         'balita_id',
         'jenis_imunisasi',    
@@ -20,8 +21,5 @@ class Imunisasi extends Model
     }
     public function user(){
         return $this->belongsTo(User::class);
-    }
-    public function imunisasi(){
-        return $this->hasMany(Imunisasi::class);
     }
 }

@@ -163,25 +163,6 @@ class BalitaController extends Controller
         ]);
         Balita::where('id', $request->id)
             ->update($validasi);
-            // [
-            //     'nama_balita'=>$request->nama_balita,
-            //     'anak_ke'=>$request->anak_ke,
-            //     'tgl_lahir'=>$request->tgl_lahir,
-            //     'jenis_kelamin'=>$request->jenis_kelamin,
-            //     'no_kk'=>$request->no_kk,
-            //     'nik_balita'=>$request->nik_balita,
-            //     'bb_lahir'=>$request->bb_lahir,
-            //     'tb_lahir'=>$request->tb_lahir,
-            //     'kia'=>$request->kia,
-            //     'imd'=>$request->imd,
-            //     'nama_ortu'=>$request->nama_ortu,
-            //     'nik_ortu'=>$request->nik_ortu,
-            //     'no_hp'=>$request->no_hp,
-            //     'alamat'=>$request->alamat,
-            //     'rt'=>$request->rt,
-            //     'rw'=>$request->rw,
-            // ]);
-
         return redirect()->route ('balita.index')->with('success', 'Data Balita Berhasil Diupdate!');
     }
 

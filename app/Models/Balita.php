@@ -11,6 +11,7 @@ class Balita extends Model
     protected $table= "balita";
     protected $primaryKey = "id";
     protected $fillable = [
+            'id',
             'nama_balita',
     		'anak_ke',
     		'tgl_lahir',

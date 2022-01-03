@@ -31,28 +31,56 @@ class ImunisasiController extends Controller
     {
         //
     }
-
+ 
     public function edit($id)
     {
-      $imunisasi = Imunisasi::findOrFail($id);
-      return view('imunisasi.edit', compact('imunisasi'));
+        $balita = Balita::all();
+        $imunisasi = Imunisasi::where('id', $id)->first(); 
+      //mengambil value input select Nama Balita
+        $balita_id = $imunisasi->balita_id;
+        $output_nama_balita = '';
+        foreach ($balita as $key => $value) {
+            $output_nama_balita .= '
+                 <option ' . (old("balita_id", $balita_id) == $value->id ? "selected" : "") . ' value="' . $value->id . '">' . $value->nama_balita . '</option>
+            ';
+
+        }
+        //mengambil value input select Jenis Imunisasi
+        $jenis_imunisasi = $imunisasi->jenis_imunisasi;
+        $nilai_jenis_imunisasi = [
+            '1 Bulan (BCG, Polio 1)',
+            '2 Bulan (DPT-HB-Hib 1, Polio 2)',
+            '3 Bulan (DPT-HB-Hib 2, Polio 3)',
+            '4 Bulan (DPT-HB-Hib 3, Polio 4, IPV)',
+            '9 Bulan (Campak)',
+            '18 Bulan (DPT-HB-Hib)',
+            '24 Bulan (Campak)'
+        ];
+        $output_jenis_imunisasi = '';
+        foreach ($nilai_jenis_imunisasi as $key => $value) {
+            $output_jenis_imunisasi .= '
+                <option ' . (old("jenis_imunisasi", $jenis_imunisasi) == $value ? "selected" : "") . ' value="' . $value . '">' . $value . '</option>
+                ';
+        }
+
+        return response()->json([
+            'data' => $imunisasi,
+            'output_nama_balita' => $output_nama_balita,
+            'output_jenis_imunisasi' => $output_jenis_imunisasi,
+        ]);
+
     }
 
-    public function update(Request $request, $id)
-    {
-        $request->validate([
+    public function update(Request $request)
+    { 
+        $validasi = $request->validate([
             'tgl_imunisasi' => 'required',
             'balita_id'=>'required',
             'jenis_imunisasi'=>'required'
         ]);
-        Imunisasi::where('id',$id)
-        ->update([
-            'tgl_imunisasi'=>$request->tgl_imunisasi,
-            'balita_id'=>$request->balita_id,
-            'jenis_imunisasi'=>$request->jenis_imunisasi,
-            
-        ]);
-        return redirect('/imunisasi')->with('success','Data Imunisasi berhasil diupdate!');
+        Imunisasi::where('id', $request->id)
+        ->update($validasi);
+        return redirect()->route('imunisasi.index')->with('success', 'Data Imunisasi Berhasil Diupdate!');
     }
 
     public function destroy($id)

@@ -21,39 +21,36 @@ class KaderController extends Controller
                 'alamat_kader'=>'required',
             ]);
             
-            $kader = kader::create($request->all());
-            return redirect('/kader')->with('success','Data Kader Posyandu berhasil ditambahkan!');
+            $kader = Kader::create($request->all());
+            return redirect()->route('kader.index')->with('success', 'Data Kader Berhasil Ditambahkan!');
         }
     
         public function edit($id)
         {
-            $kader = kader::find($id);
-            return view('kader.edit' ,compact('kader'));
+            $kader = Kader::where('id', $id)->first();
+            return response()->json([
+            'data' => $kader,
+            ]);
         }
     
-        public function update(Request $request, $id)
-        {
-            $request->validate([
+        public function update(Request $request)
+        { 
+        $validasi = $request->validate([
                 'nama_kader'=>'required',
                 'no_hp_kader'=>'required',
                 'alamat_kader'=>'required',
             ]);
             
-            kader::where('id',$id)
-                    ->update([
-                        'nama_kader'=>$request->nama_kader,
-                        'no_hp_kader'=>$request->no_hp,
-                        'alamat_kader'=>$request->alamat_kader,
-                        
-                    ]);
-            return redirect('/kader')->with('success','Data Kader Posyandu berhasil diupdate!');
+        Kader::where('id', $request->id)
+        ->update($validasi);
+        return redirect()->route('kader.index')->with('success', 'Data Kader Berhasil Diupdate!');
         }
     
         public function destroy($id)
         {
-            kader::destroy($id);
+            Kader::destroy($id);
             return redirect('/kader')->with('success','Data Kader Posyandu berhasil dihapus!');
         }
     }
     
-
+ 

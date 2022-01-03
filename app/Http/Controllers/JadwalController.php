@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace App\Http\Controllers;
 
@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class JadwalController extends Controller
 {
-    //menampilkan view index
+    //menampilkan view index 
     public function index()
     {
         $jadwal = Jadwal::all();
@@ -25,36 +25,35 @@ class JadwalController extends Controller
         ]);
         
         $jadwal = Jadwal::create($request->all());
-        return redirect('/jadwal')->with('success','Jadwal berhasil ditambahkan!');
+        return redirect()->route('jadwal.index')->with('toast_success','Jadwal berhasil ditambahkan!');
     }
     public function edit($id)
     {
-        $jadwal = Jadwal::find($id);
-        return view('jadwal.edit' ,compact('jadwal'));
+        $jadwal = Jadwal::where('id', $id)->first();
+
+        return response()->json([
+            'data' => $jadwal,
+        ]);
+
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $request->validate([
+        $validasi = $request->validate([
             'tgl_pelayanan'=>'required',
             'jam_pelayanan'=>'required',
             'tempat_pelayanan'=>'required',
         ]);
         
-        Jadwal::where('id',$id)
-                ->update([
-                    'tgl_pelayanan'=>$request->tgl_pelayanan,
-                    'jam_pelayanan'=>$request->jam_pelayanan,
-                    'tempat_pelayanan'=>$request->tempat_pelayanan,
-                    
-                ]);
-        return redirect('/jadwal')->with('success','Data Jadwal Pelayanan berhasil diupdate!');
+        Jadwal::where('id', $request->id)
+                ->update($validasi);
+                return redirect()->route('jadwal.index')->with('toast_success','Data Jadwal Pelayanan berhasil diupdate!');
     }
 
     public function destroy($id)
     {
         Jadwal::destroy($id);
-        return redirect('/jadwal')->with('success','Data Jadwal Pelayanan berhasil dihapus!');
+        return redirect('/jadwal');
     }
 
 }

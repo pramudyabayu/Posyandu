@@ -55,7 +55,7 @@
                 <th scope="col" class="sort" data-sort="alamat">Alamat</th>
                 <th scope="col" class="sort" data-sort="rt">RT</th>
                 <th scope="col" class="sort" data-sort="rw">RW</th>
-                <th scope="col" class="sort" data-sort="rw"></th>
+                <th scope="col" class="sort" data-sort="rw">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -132,7 +132,7 @@ $('.btn-edit').click(function(e) {
     e.preventDefault();
     var id = $(this).val();
     $.get('balita/' + id + '/edit', function (data) {
-         $('#edit_id').val(id);
+      $('#edit_id').val(id);
          $('#edit_nama_balita').val(data.data.nama_balita);
          $('#edit_anak_ke').val(data.data.anak_ke);
          $('#edit_tgl_lahir').val(data.data.tgl_lahir);

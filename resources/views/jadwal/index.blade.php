@@ -18,7 +18,6 @@
   </div>
 </div>
 
-
 <div class="container-fluid mt--6">
   <div class="row">
     <div class="col">
@@ -30,8 +29,8 @@
               <h3 class="mb-0">Jadwal Pelayanan</h3>
             </div>
             <div class="col-4 text-right">
-              <a href="#modal-jadwal" class="btn btn-sm btn-primary bi bi-plus-circle" data-toggle="modal" data-placement="left" title="Tambah Jadwal Pelayanan"></a>
-            </div>
+              <button id="#btn-add" data-target="#modal-jadwal-create" class="btn-add btn btn-primary" data-toggle="modal" data-placement="left" title="Tambah Jadwal Pelayanan"><i class="bi bi-plus-circle"></i></button>
+          </div>
           </div>
         </div>
         <!-- Light table -->
@@ -57,11 +56,11 @@
                 <td>{{date('H:i:s',strtotime($item->jam_pelayanan))}}</td>
                 <td>{{$item->tempat_pelayanan}}</td>
                 <td>
-                  @csrf
-                  <a href="/jadwal/{{$item->id}}/delete" onclick="return "
+                  @csrf 
+                  <a href="/jadwal/{{$item->id}}/delete" onclick="return sweetDel(event)"
                       class="btn btn-danger"><i class="bi bi-trash"></i></a>
-                  <a href="#modal-jadwal-edit" class="btn btn-primary" data-toggle="modal" data-placement="left" ><i class="bi bi-pencil-square"></i></a>
-                </td>
+                      <button id="#btn-edit" data-target="#modal-jadwal-edit" class="btn-edit btn btn-primary" data-toggle="modal" data-placement="left" value="{{ $item->id }}"><i class="bi bi-pencil-square"></i></button>
+                  </td>
               </tr>
             @endforeach
           </tbody>
@@ -99,57 +98,21 @@
   </div>
 </div>
 
-<!-- MODAL JADWAL -->
-<div class="modal fade" id="modal-jadwal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h6 class="modal-title" id="modal-title-default">Tambah Data Jadwal</h6>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="col-12 section">
-          <div class="line mb-5"></div>
-          <form action="/jadwal" method="POST">
-            @csrf
-            <div class="mb-3">
-              <label for="tgl_pelayanan" class="form-control-label">Tanggal</label>
-              <input autocomplete="off" type="date" class="form-control @error('tgl_pelayanan') is-invalid @enderror" name="tgl_pelayanan"  id="tgl_pelayanan" value="{{ old('tgl_pelayanan') }}">
-                @error('tgl_pelayanan')
-                  <div class="invalid-feedback">
-                      {{$message}}
-                  </div>
-                @enderror
-            </div>
-            <div class="mb-3">
-              <label for="jam_pelayanan" class="form-control-label">Waktu</label>
-              <input autocomplete="off" type="time" class="form-control @error('jam_pelayanan') is-invalid @enderror" name="jam_pelayanan"  id="jam_pelayanan" value="{{ old('jam_pelayanan') }}">
-                @error('jam_pelayanan')
-                  <div class="invalid-feedback">
-                      {{$message}}
-                  </div>
-                @enderror
-            </div>
-            <div class="mb-3">
-              <label for="tempat_pelayanan" class="form-control-label">Tempat</label>
-              <input autocomplete="off" type="text" class="form-control @error('tempat_pelayanan') is-invalid @enderror" name="tempat_pelayanan"  id="tempat_pelayanan" value="{{ old('tempat_pelayanan') }}">
-                @error('tempat_pelayanan')
-                  <div class="invalid-feedback">
-                    {{$message}}
-                  </div>
-                @enderror
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Save</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+@include('jadwal.modalCreate');
+@include('jadwal.modalEdit');
 
+<script src="{{asset('assets/vendor/jquery/dist/jquery.min.js')}}"></script>
+<script>
+$('.btn-edit').click(function(e) {
+    e.preventDefault();
+    var id = $(this).val();
+    $.get('jadwal/' + id + '/edit', function (data) {
+         $('#edit_id').val(id);
+         $('#edit_tgl_pelayanan').val(data.data.tgl_pelayanan);
+         $('#edit_jam_pelayanan').val(data.data.jam_pelayanan);
+         $('#edit_tempat_pelayanan').val(data.data.tempat_pelayanan);
+     })
+});
+</script>
 
 @endsection
