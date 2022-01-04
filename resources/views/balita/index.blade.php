@@ -27,6 +27,15 @@
           <div class="row align-items-center">
             <div class="col-8">
               <h3 class="mb-0">Data Balita</h3>
+
+               <!-- Search form -->
+               <form class="form" method="get" action="{{ route('search') }}">
+                <div class="form-group w-100 mb-3 mt-2">
+                    <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan nama balita">
+                    <button type="submit" class="btn btn-primary mb-1">Cari</button>
+                </div>
+            </form>
+              
             </div>
             <div class="col-4 text-right">
               <button id="#btn-add" data-target="#modal-balita-create" class="btn-add btn btn-primary" data-toggle="modal" data-placement="left" title="Tambah Data Balita"><i class="bi bi-plus-circle"></i></button>

@@ -34,6 +34,8 @@ Route::post('/balita', [BalitaController::class, 'store']);
 Route::get('/balita/{id}/edit', [BalitaController::class, 'edit']);
 Route::post('/balita/update', [BalitaController::class, 'update']);
 Route::get('/balita/{balita}/delete', [BalitaController::class, 'destroy']);
+Route::get('/balita/search', [BalitaController::class, 'search'])->name('search');
+
 
 
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');

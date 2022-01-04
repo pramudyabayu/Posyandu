@@ -14,6 +14,15 @@ class BalitaController extends Controller
         return view('balita.index', compact('balita'));
     }
 
+    public function search(Request $request)
+	{
+		// menangkap data pencarian
+		$keyword = $request->search;
+		$balita = Balita::where('nama_balita', 'like', "%" . $keyword . "%")->paginate(5);
+		
+		return view('balita.index', compact('balita')) ->with('i', (request()->input('page', 1) -1) *5);
+ 
+	}
 
     //Melakukan Eksekusi Penyimpanan Ke Database
     public function store(Request $request)
