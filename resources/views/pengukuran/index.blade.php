@@ -70,7 +70,8 @@
                 <td>{{$item->tgl_pemberian}}</td>
                 <td>
                   @csrf
-                  <a href="/pengukuran/{{$item->id}}/delete" onclick="return sweetDel(event)"class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                  <a href="/pengukuran/{{$item->id}}/delete" onclick="return sweetDel(event)"
+                      class="btn btn-danger"><i class="bi bi-trash"></i></a>
                   <button id="#btn-edit" data-target="#modal-pengukuran-edit" class="btn-edit btn btn-primary" data-toggle="modal" data-placement="left" value="{{ $item->id }}"><i class="bi bi-pencil-square"></i></button>
                 </td>
               </tr>
@@ -135,7 +136,5 @@ $('.btn-edit').click(function(e) {
      })
 });
 </script>
-
-
 
 @endsection

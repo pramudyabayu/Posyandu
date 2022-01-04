@@ -1,4 +1,4 @@
-<!-- <MODAL IMUNISASI> --> 
+<!-- <MODAL IMUNISASI EDIT> --> 
 <div class="modal fade" id="modal-imunisasi-edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -48,7 +48,8 @@
                   </div>
                 @enderror
             </div>
-          </div>
+              <input type="hidden" name="id" id="edit_id" />
+            </div>
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary">Save</button>
@@ -57,7 +58,6 @@
       </div>
     </div>
   </div>
-<!-- </div>
-</div> -->
+
 
 
