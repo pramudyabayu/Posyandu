@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Balita;
 use Illuminate\Http\Request;
+use PDF;
 
 class BalitaController extends Controller
 {
    //Menampilkan View Index
     public function index()
     {
-        $balita = Balita::orderBy('created_at','ASC')->paginate(10);
+        $balita = Balita::orderBy('created_at','ASC')->simplePaginate(5);
         return view('balita.index', compact('balita'));
     }
 
@@ -179,5 +180,13 @@ class BalitaController extends Controller
     {
         Balita::destroy($id);
         return redirect('/balita')->with('success', 'Data Balita Berhasil Dihapus!');
+    }
+
+    public function exportpdf(){
+        $balita = Balita::all();
+
+        view()->share('balita', $balita);
+        $pdf = PDF::loadview('balita.balita-pdf')->setPaper('f4','landscape');
+        return $pdf->stream('balita.pdf');
     }
 }

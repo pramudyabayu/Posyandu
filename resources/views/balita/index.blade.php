@@ -28,24 +28,31 @@
             <div class="col-8">
               <h3 class="mb-0">Data Balita</h3>
 
-               <!-- Search form -->
-               <form class="form" method="get" action="{{ route('search') }}">
-                <div class="form-group w-100 mb-3 mt-2">
-                    <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan nama balita">
-                    <button type="submit" class="btn btn-primary mb-1">Cari</button>
+          <!-- Search form -->
+          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" method="get" action="{{ route('search') }}">
+            <div class="form-group mb-0">
+              <div class="input-group input-group-alternative input-group-merge">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
-            </form>
+                <input class="form-control" placeholder="Search Nama Balita" type="text" name="search" id="search">
+              </div>
+            </div>
+           </form>
+
+           
               
             </div>
             <div class="col-4 text-right">
+              <a href="balita/exportpdf" class="btn btn-primary" data-placement="left" title="Download Data Balita"><i class="bi bi-journal-arrow-down"></i></a>
               <button id="#btn-add" data-target="#modal-balita-create" class="btn-add btn btn-primary" data-toggle="modal" data-placement="left" title="Tambah Data Balita"><i class="bi bi-plus-circle"></i></button>
-          </div>
+            </div>
           </div>
         </div>
         <!-- Light table -->
         <div class="table-responsive">
           <table class="table align-items-center table-flush">
-            <thead class="thead-light">
+            <thead class="thead-light"> 
               <tr>
                 <th scope="col" class="sort" data-sort="no">No</th>
                 <th scope="col" class="sort" data-sort="nama_balita">Nama Balita</th>
@@ -100,33 +107,9 @@
           </table>
         </div>
 
-        <!-- Card footer -->
+      <!-- Card footer -->
       <div class="card-footer py-4">
-        <nav aria-label="...">
-          <ul class="pagination justify-content-end mb-0">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" tabindex="-1">
-                <i class="fas fa-angle-left"></i>
-                <span class="sr-only">Previous</span>
-              </a>
-            </li>
-            <li class="page-item active">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">
-                <i class="fas fa-angle-right"></i>
-                <span class="sr-only">Next</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+        {{ $balita->links() }}
       </div>
     </div>
   </div>

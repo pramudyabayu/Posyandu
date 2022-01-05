@@ -35,6 +35,7 @@ Route::get('/balita/{id}/edit', [BalitaController::class, 'edit']);
 Route::post('/balita/update', [BalitaController::class, 'update']);
 Route::get('/balita/{balita}/delete', [BalitaController::class, 'destroy']);
 Route::get('/balita/search', [BalitaController::class, 'search'])->name('search');
+Route::get('/balita/exportpdf', [BalitaController::class, 'exportpdf'])->name('exportpdf');
 
 
 
@@ -55,6 +56,8 @@ Route::post('/pengukuran', [PengukuranController::class, 'store']);
 Route::get('/pengukuran/{id}/edit', [PengukuranController::class, 'edit']);
 Route::post('/pengukuran/update', [PengukuranController::class, 'update']);
 Route::get('/pengukuran/{pengukuran}/delete', [PengukuranController::class, 'destroy']);
+Route::get('/pengukuran/search', [PengukuranController::class, 'search'])->name('search');
+
 
 Route::get('/imunisasi', [ImunisasiController::class, 'index'])->name('imunisasi.index');
 Route::post('/imunisasi', [ImunisasiController::class, 'store']);

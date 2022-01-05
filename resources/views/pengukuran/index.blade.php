@@ -26,6 +26,13 @@
           <div class="row align-items-center">
             <div class="col-8">
               <h3 class="mb-0">Data Pengukuran</h3>
+               <!-- Search form -->
+               <form class="form" method="get" action="{{ route('search') }}">
+                <div class="form-group w-100 mb-3 mt-2">
+                    <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan nama balita">
+                    <button type="submit" class="btn btn-primary mb-1">Cari</button>
+                </div>
+              </form>
             </div>
             <div class="col-4 text-right">
                 <button id="#btn-add" data-target="#modal-pengukuran-create" class="btn-add btn btn-primary" data-toggle="modal" data-placement="left" title="Tambah Data Pengukuran"><i class="bi bi-plus-circle"></i></button>
@@ -80,33 +87,8 @@
           </table>
         </div>
         <!-- Card footer -->
-        <div class="card-footer py-4">
-          <nav aria-label="...">
-            <ul class="pagination justify-content-end mb-0">
-              <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">
-                  <i class="fas fa-angle-left"></i>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="#">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="#">
-                  <i class="fas fa-angle-right"></i>
-                  <span class="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+      <div class="card-footer py-4">
+        {{ $pengukuran->links() }}
       </div>
     </div>
   </div>

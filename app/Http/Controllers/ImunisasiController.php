@@ -10,7 +10,7 @@ class ImunisasiController extends Controller
 {
     public function index()
     {
-        $imunisasi = Imunisasi::orderBy('created_at','ASC')->paginate(10);
+        $imunisasi = Imunisasi::orderBy('created_at','ASC')->simplePaginate(5);
         $balita = Balita::all();
         return view('imunisasi.index', compact('imunisasi', 'balita'));
     } 

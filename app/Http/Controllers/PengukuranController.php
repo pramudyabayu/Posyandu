@@ -11,12 +11,24 @@ class PengukuranController extends Controller
 {
     public function index()
     {
-        $pengukuran = Pengukuran::orderBy('created_at','ASC')->paginate(10);
+        $pengukuran = Pengukuran::orderBy('created_at','ASC')->simplePaginate(5);
         $jadwal = Jadwal::all();
         $balita = Balita::all();
         return view('pengukuran.index', compact('pengukuran', 'jadwal', 'balita'));
     }
  
+    public function search(Request $request)
+	{
+		// menangkap data pencarian
+		$keyword = $request->search;
+        $jadwal = Jadwal::all();
+        $balita = Balita::all();
+		$pengukuran = Pengukuran::where('usia', 'like', "%" . $keyword . "%")->paginate(5);
+		
+		return view('pengukuran.index', compact('pengukuran', 'jadwal', 'balita')) ->with('i', (request()->input('page', 1) -1) *5);
+ 
+	}
+
     public function store(Request $request)
     {
         $request->validate([
