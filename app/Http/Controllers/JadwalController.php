@@ -10,7 +10,7 @@ class JadwalController extends Controller
     //menampilkan view index 
     public function index()
     {
-        $jadwal = Jadwal::all();
+        $jadwal = Jadwal::orderBy('created_at','ASC')->simplePaginate(5);
         return view('jadwal.index',compact('jadwal'));
     }
 

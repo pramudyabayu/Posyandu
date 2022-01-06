@@ -2,35 +2,35 @@
 <html>
 <head>
 <style>
-#customers {
+#table1 {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
-
-#customers td, #customers th {
+ 
+#table1 td, #table1 th {
   border: 1px solid #ddd;
   padding: 8px;
 }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
+#table1 tr:nth-child(even){background-color: #f2f2f2;}
 
-#customers tr:hover {background-color: #ddd;}
+#table1 tr:hover {background-color: #ddd;}
 
-#customers th {
+#table1 th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
+  background-color: #5e72e4;
   color: white;
 }
 </style>
 </head>
 <body>
 
-<h1>A Fancy Table</h1>
+<h3>Laporan Data Balita</h3>
 
-<table id="customers">
+<table id="table1">
   <tr>
         <th>No</th>
         <th>Nama Balita</th>
@@ -83,5 +83,3 @@
 
 </body>
 </html>
-
-

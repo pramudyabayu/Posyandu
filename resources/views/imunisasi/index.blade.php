@@ -8,7 +8,7 @@
         <div class="col-lg-6 col-7">
           <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-              <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
               <li class="breadcrumb-item"><a href="#">Imunisasi</a></li>
             </ol>
           </nav>
@@ -29,8 +29,11 @@
             <h3 class="mb-0">Data Imunisasi</h3>
           </div>
           <div class="col-4 text-right">
-            <a href="#modal-imunisasi-create" class="btn btn-sm btn-primary bi bi-plus-circle" data-toggle="modal" data-placement="left" title="Tambah Data Imunisasi"></a>
-          </div>
+              <a href="imunisasi/exportpdf" class="btn btn-light btn-sm" data-placement="left" title="Download Data imunisasi PDF">PDF</a>
+              <a href="imunisasi/export-excel" class="btn btn-light btn-sm" data-placement="left" title="Download Data imunisasi Excel">Excel</a>
+              <a href="imunisasi/export-csv" class="btn btn-light btn-sm" data-placement="left" title="Download Data imunisasi CSV">CSV</a>
+              <button id="#btn-add" data-target="#modal-imunisasi-create" class="btn-add btn btn-primary btn-sm" data-toggle="modal" data-placement="left" title="Tambah Data imunisasi"><i class="bi bi-plus-circle"></i></button>
+            </div>
         </div>
       </div>
       <!-- Light table -->

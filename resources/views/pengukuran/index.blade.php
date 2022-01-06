@@ -8,7 +8,7 @@
         <div class="col-lg-6 col-7">
           <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-              <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
               <li class="breadcrumb-item"><a href="#">Pengukuran</a></li>
             </ol>
           </nav>
@@ -26,16 +26,19 @@
           <div class="row align-items-center">
             <div class="col-8">
               <h3 class="mb-0">Data Pengukuran</h3>
-               <!-- Search form -->
-               <form class="form" method="get" action="{{ route('search') }}">
+               
+               <!-- <form class="form" method="get" action="{{ route('search') }}">
                 <div class="form-group w-100 mb-3 mt-2">
-                    <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan nama balita">
-                    <button type="submit" class="btn btn-primary mb-1">Cari</button>
+                  <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan nama balita">
+                <button type="submit" class="btn btn-primary mb-1">Cari</button>
                 </div>
-              </form>
+              </form> -->
             </div>
             <div class="col-4 text-right">
-                <button id="#btn-add" data-target="#modal-pengukuran-create" class="btn-add btn btn-primary" data-toggle="modal" data-placement="left" title="Tambah Data Pengukuran"><i class="bi bi-plus-circle"></i></button>
+                <a href="pengukuran/exportpdf" class="btn btn-light btn-sm" data-placement="left" title="Download Data Pengukuran PDF">PDF</a>
+                <a href="pengukuran/export-excel" class="btn btn-light btn-sm" data-placement="left" title="Download Data Pengukuran Excel">Excel</a>
+                <a href="pengukuran/export-csv" class="btn btn-light btn-sm" data-placement="left" title="Download Data Pengukuran CSV">CSV</a>
+                <button id="#btn-add" data-target="#modal-pengukuran-create" class="btn-add btn btn-primary btn-sm" data-toggle="modal" data-placement="left" title="Tambah Data Pengukuran"><i class="bi bi-plus-circle"></i></button>
             </div>
           </div>
         </div>

@@ -36,7 +36,8 @@ Route::post('/balita/update', [BalitaController::class, 'update']);
 Route::get('/balita/{balita}/delete', [BalitaController::class, 'destroy']);
 Route::get('/balita/search', [BalitaController::class, 'search'])->name('search');
 Route::get('/balita/exportpdf', [BalitaController::class, 'exportpdf'])->name('exportpdf');
-
+Route::get('/balita/export-excel', [BalitaController::class, 'exportIntoExcel']);
+Route::get('/balita/export-csv', [BalitaController::class, 'exportIntoCSV']);
 
 
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal.index');
@@ -50,13 +51,19 @@ Route::post('/kader', [KaderController::class, 'store']);
 Route::get('/kader/{id}/edit', [KaderController::class, 'edit']);
 Route::post('/kader/update', [KaderController::class, 'update']);
 Route::get('/kader/{kader}/delete', [KaderController::class, 'destroy']);
+Route::get('/kader/exportpdf', [KaderController::class, 'exportpdf'])->name('exportpdf');
+Route::get('/kader/export-excel', [KaderController::class, 'exportIntoExcel']);
+Route::get('/kader/export-csv', [KaderController::class, 'exportIntoCSV']);
 
 Route::get('/pengukuran', [PengukuranController::class, 'index'])->name('pengukuran.index');
 Route::post('/pengukuran', [PengukuranController::class, 'store']);
 Route::get('/pengukuran/{id}/edit', [PengukuranController::class, 'edit']);
 Route::post('/pengukuran/update', [PengukuranController::class, 'update']);
 Route::get('/pengukuran/{pengukuran}/delete', [PengukuranController::class, 'destroy']);
-Route::get('/pengukuran/search', [PengukuranController::class, 'search'])->name('search');
+// Route::get('/pengukuran/search', [PengukuranController::class, 'search'])->name('search');
+Route::get('/pengukuran/exportpdf', [PengukuranController::class, 'exportpdf'])->name('exportpdf');
+Route::get('/pengukuran/export-excel', [PengukuranController::class, 'exportIntoExcel']);
+Route::get('/pengukuran/export-csv', [PengukuranController::class, 'exportIntoCSV']);
 
 
 Route::get('/imunisasi', [ImunisasiController::class, 'index'])->name('imunisasi.index');
@@ -64,6 +71,9 @@ Route::post('/imunisasi', [ImunisasiController::class, 'store']);
 Route::get('/imunisasi/{id}/edit', [ImunisasiController::class, 'edit']);
 Route::post('/imunisasi/update', [ImunisasiController::class, 'update']);
 Route::get('/imunisasi/{imunisasi}/delete', [ImunisasiController::class, 'destroy']);
+Route::get('/imunisasi/exportpdf', [ImunisasiController::class, 'exportpdf'])->name('exportpdf');
+Route::get('/imunisasi/export-excel', [ImunisasiController::class, 'exportIntoExcel']);
+Route::get('/imunisasi/export-csv', [ImunisasiController::class, 'exportIntoCSV']);
 
 
 Route::get('/keuangan',[KeuanganController::class,'keuangan']);

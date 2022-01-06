@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Balita;
 use App\Models\Imunisasi;
+use App\Exports\ImunisasiExport;
+use Excel;
+use PDF;
 use Illuminate\Http\Request;
 
 class ImunisasiController extends Controller
@@ -48,6 +51,7 @@ class ImunisasiController extends Controller
         //mengambil value input select Jenis Imunisasi
         $jenis_imunisasi = $imunisasi->jenis_imunisasi;
         $nilai_jenis_imunisasi = [
+            '0-7 Hari (HB 0)',
             '1 Bulan (BCG, Polio 1)',
             '2 Bulan (DPT-HB-Hib 1, Polio 2)',
             '3 Bulan (DPT-HB-Hib 2, Polio 3)',
@@ -87,5 +91,24 @@ class ImunisasiController extends Controller
     {
         Imunisasi::destroy($id);
         return redirect('/imunisasi')->with('success','Data Imunisasi berhasil dihapus!');
+    }
+
+    public function exportpdf()
+    {
+        $imunisasi = Imunisasi::all();
+
+        view()->share('imunisasi', $imunisasi);
+        $pdf = PDF::loadview('imunisasi.imunisasi-pdf')->setPaper('a4','landscape');
+        return $pdf->stream('imunisasi.pdf');
+    }
+
+    public function exportIntoExcel()
+    {
+        return Excel::download(new ImunisasiExport, 'imunisasilist.xlsx');
+    }
+
+    public function exportIntoCSV()
+    {
+        return Excel::download(new ImunisasiExport, 'imunisasilist.csv');
     }
 }

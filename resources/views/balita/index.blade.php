@@ -1,6 +1,6 @@
 @extends('app')
 @section('content')
-
+ 
 <div class="header bg-primary pb-6">
   <div class="container-fluid">
     <div class="header-body">
@@ -8,7 +8,7 @@
         <div class="col-lg-6 col-7">
           <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
             <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-              <li class="breadcrumb-item"><a href="/"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
               <li class="breadcrumb-item"><a href="#">Balita</a></li>
             </ol>
           </nav>
@@ -29,23 +29,19 @@
               <h3 class="mb-0">Data Balita</h3>
 
           <!-- Search form -->
-          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main" method="get" action="{{ route('search') }}">
-            <div class="form-group mb-0">
-              <div class="input-group input-group-alternative input-group-merge">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-search"></i></span>
-                </div>
-                <input class="form-control" placeholder="Search Nama Balita" type="text" name="search" id="search">
-              </div>
+          <form class="form" method="get" action="{{ route('search') }}">
+            <div class="form-group w-75 mb-3 mt-2">
+                <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan nama balita">
+                <button type="submit" class="btn btn-primary mb-1">Cari</button>
             </div>
-           </form>
-
-           
+          </form>
               
             </div>
             <div class="col-4 text-right">
-              <a href="balita/exportpdf" class="btn btn-primary" data-placement="left" title="Download Data Balita"><i class="bi bi-journal-arrow-down"></i></a>
-              <button id="#btn-add" data-target="#modal-balita-create" class="btn-add btn btn-primary" data-toggle="modal" data-placement="left" title="Tambah Data Balita"><i class="bi bi-plus-circle"></i></button>
+              <a href="balita/exportpdf" class="btn btn-light btn-sm" data-placement="left" title="Download Data Balita PDF">PDF</a>
+              <a href="balita/export-excel" class="btn btn-light btn-sm" data-placement="left" title="Download Data Balita Excel">Excel</a>
+              <a href="balita/export-csv" class="btn btn-light btn-sm" data-placement="left" title="Download Data Balita CSV">CSV</a>
+              <button id="#btn-add" data-target="#modal-balita-create" class="btn-add btn btn-primary btn-sm" data-toggle="modal" data-placement="left" title="Tambah Data Balita"><i class="bi bi-plus-circle"></i></button>
             </div>
           </div>
         </div>

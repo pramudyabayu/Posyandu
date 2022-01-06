@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Imunisasi extends Model
 {
@@ -16,6 +17,17 @@ class Imunisasi extends Model
         'balita_id',
         'jenis_imunisasi',    
     ];
+
+    public static function getImunisasi()
+    {
+        $records = DB::table('imunisasi')->select(
+            'id',
+        'tgl_imunisasi',
+        'balita_id',
+        'jenis_imunisasi')->get()->toArray();
+        return $records;
+    }
+
     public function balita(){
         return $this->belongsTo(Balita::class,'balita_id','id');
     }

@@ -5,29 +5,32 @@ namespace App\Http\Controllers;
 use App\Models\Pengukuran;
 use App\Models\Balita;
 use App\Models\Jadwal;
+use App\Exports\PengukuranExport;
+use Excel;
+use PDF;
 use Illuminate\Http\Request;
 
 class PengukuranController extends Controller
 {
     public function index()
     {
-        $pengukuran = Pengukuran::orderBy('created_at','ASC')->simplePaginate(5);
+        $pengukuran = Pengukuran::orderBy('jadwal_id','ASC')->simplePaginate(5);
         $jadwal = Jadwal::all();
         $balita = Balita::all();
         return view('pengukuran.index', compact('pengukuran', 'jadwal', 'balita'));
     }
  
-    public function search(Request $request)
-	{
-		// menangkap data pencarian
-		$keyword = $request->search;
-        $jadwal = Jadwal::all();
-        $balita = Balita::all();
-		$pengukuran = Pengukuran::where('usia', 'like', "%" . $keyword . "%")->paginate(5);
+ //    public function search(Request $request)
+	// {
+	// 	// menangkap data pencarian
+	// 	$keyword = $request->search;
+ //        $jadwal = Jadwal::all();
+ //        $balita = Balita::all();
+	// 	$pengukuran = Pengukuran::where('balita_id', 'like', "%" . $keyword . "%")->simplePaginate(5);
 		
-		return view('pengukuran.index', compact('pengukuran', 'jadwal', 'balita')) ->with('i', (request()->input('page', 1) -1) *5);
+	// 	return view('pengukuran.index', compact('pengukuran', 'jadwal', 'balita')) ->with('i', (request()->input('page', 1) -1) *5);
  
-	}
+	// }
 
     public function store(Request $request)
     {
@@ -230,6 +233,25 @@ class PengukuranController extends Controller
         return redirect('/pengukuran')->with('success','Data Pengukuran berhasil dihapus!');
     }
 
+    public function exportpdf()
+    {
+        $pengukuran = Pengukuran::all();
+        // $jadwal = Jadwal::all();
+        // $balita = Balita::all();
 
+        view()->share('pengukuran', $pengukuran);
+        $pdf = PDF::loadview('pengukuran.pengukuran-pdf')->setPaper('a3','landscape');
+        return $pdf->stream('pengukuran.pdf');
+    }
+
+    public function exportIntoExcel()
+    {
+        return Excel::download(new PengukuranExport, 'pengukuranlist.xlsx');
+    }
+
+    public function exportIntoCSV()
+    {
+        return Excel::download(new PengukuranExport, 'pengukuranlist.csv');
+    }
 
 }

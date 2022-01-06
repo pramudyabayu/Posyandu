@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Balita;
 use Illuminate\Http\Request;
+use App\Exports\BalitaExport;
+use Excel;
 use PDF;
 
 class BalitaController extends Controller
@@ -11,7 +13,7 @@ class BalitaController extends Controller
    //Menampilkan View Index
     public function index()
     {
-        $balita = Balita::orderBy('created_at','ASC')->simplePaginate(5);
+        $balita = Balita::orderBy('nama_balita','ASC')->simplePaginate(5);
         return view('balita.index', compact('balita'));
     }
 
@@ -182,11 +184,22 @@ class BalitaController extends Controller
         return redirect('/balita')->with('success', 'Data Balita Berhasil Dihapus!');
     }
 
-    public function exportpdf(){
+    public function exportpdf()
+    {
         $balita = Balita::all();
 
         view()->share('balita', $balita);
-        $pdf = PDF::loadview('balita.balita-pdf')->setPaper('f4','landscape');
+        $pdf = PDF::loadview('balita.balita-pdf')->setPaper('a2','landscape');
         return $pdf->stream('balita.pdf');
+    }
+
+    public function exportIntoExcel()
+    {
+        return Excel::download(new BalitaExport, 'balitalist.xlsx');
+    }
+
+    public function exportIntoCSV()
+    {
+        return Excel::download(new BalitaExport, 'balitalist.csv');
     }
 }
