@@ -45,7 +45,7 @@
               <th scope="col" class="sort" data-sort="tgl_imunisasi">Tanggal Imunisasi</th>
               <th scope="col" class="sort" data-sort="nama_balita">Nama Balita</th>
               <th scope="col" class="sort" data-sort="jenis_imunisasi">Jenis Imunisasi</th>
-              <th scope="col" class="sort" data-sort="aksi">Aksi</th>
+              <th scope="col" class="sort" data-sort="aksi"></th>
             </tr>
           </thead>
           <tbody>

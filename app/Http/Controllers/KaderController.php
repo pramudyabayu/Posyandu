@@ -25,7 +25,7 @@ class KaderController extends Controller
             ]);
             
             $kader = Kader::create($request->all());
-            return redirect()->route('kader.index')->with('success', 'Data Kader Berhasil Ditambahkan!');
+            return redirect()->route('kader.index')->with('toast_success', 'Data Kader Berhasil Ditambahkan!');
         }
     
         public function edit($id)
@@ -46,7 +46,7 @@ class KaderController extends Controller
             
         Kader::where('id', $request->id)
         ->update($validasi);
-        return redirect()->route('kader.index')->with('success', 'Data Kader Berhasil Diupdate!');
+        return redirect()->route('kader.index')->with('toast_success', 'Data Kader Berhasil Diupdate!');
         }
     
         public function destroy($id)

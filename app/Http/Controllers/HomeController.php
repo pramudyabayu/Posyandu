@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Balita;
+use App\Models\Pengukuran;
+use App\Models\Imunisasi;
+use App\Models\Kader;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +28,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard.index');
+
+        $balita = Balita::latest()->count();
+        $pengukuran = Pengukuran::latest()->count();
+        $imunisasi = Imunisasi::latest()->count();
+        $kader = Kader::latest()->count();
+        
+        return view('dashboard.index',['balita' => $balita, 'pengukuran' => $pengukuran, 'imunisasi' => $imunisasi, 'kader' => $kader]); 
     }
 }

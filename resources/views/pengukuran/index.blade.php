@@ -59,7 +59,7 @@
                 <th scope="col" class="sort" data-sort="pmt_ke">PMT Ke-</th>
                 <th scope="col" class="sort" data-sort="sumber_pmt">Sumber PMT</th>
                 <th scope="col" class="sort" data-sort="tgl_pemberian">Tanggal PMT</th>
-                <th scope="col" class="sort" data-sort="aksi">Aksi</th>
+                <th scope="col" class="sort" data-sort="aksi"></th>
               </tr>
             </thead>
             <tbody>

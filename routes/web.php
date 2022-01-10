@@ -8,6 +8,8 @@ use App\Http\Controllers\PengukuranController;
 use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SumberController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,10 +77,19 @@ Route::get('/imunisasi/exportpdf', [ImunisasiController::class, 'exportpdf'])->n
 Route::get('/imunisasi/export-excel', [ImunisasiController::class, 'exportIntoExcel']);
 Route::get('/imunisasi/export-csv', [ImunisasiController::class, 'exportIntoCSV']);
 
+//manajemen keuangan
 
 Route::get('/keuangan',[KeuanganController::class,'keuangan']);
 Route::get('/pemasukan',[KeuanganController::class,'pemasukan']);
 Route::get('/pengeluaran',[KeuanganController::class,'pengeluaran']);
 
+Route::get('/sumber-pemasukan',[SumberController::class,'index']);
+Route::get('/sumber-pemasukan/add',[SumberController::class,'add']);
+Route::post('/sumber-pemasukan/add',[SumberController::class,'store']);
+Route::get('/sumber-pemasukan/{id}',[SumberController::class,'edit']);
+Route::put('/sumber-pemasukan/{id}',[SumberController::class,'update']);
+Route::delete('/sumber-pemasukan/{id}',[SumberController::class,'delete()']);
+
+Route::get('/pemasukan',[PemasukanController::class,'index']);
 
 

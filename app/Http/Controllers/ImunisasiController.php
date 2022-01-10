@@ -27,7 +27,7 @@ class ImunisasiController extends Controller
         ]);
 
         Imunisasi::create($request->all());
-      return redirect()->route('imunisasi.index')->with('success', 'Data Imunisasi Berhasil Ditambahkan!');
+      return redirect()->route('imunisasi.index')->with('toast_success', 'Data Imunisasi Berhasil Ditambahkan!');
     }
 
     public function show($id)
@@ -84,7 +84,7 @@ class ImunisasiController extends Controller
         ]);
         Imunisasi::where('id', $request->id)
         ->update($validasi);
-        return redirect()->route('imunisasi.index')->with('success', 'Data Imunisasi Berhasil Diupdate!');
+        return redirect()->route('imunisasi.index')->with('toast_success', 'Data Imunisasi Berhasil Diupdate!');
     }
 
     public function destroy($id)

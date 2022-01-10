@@ -44,8 +44,7 @@ class PengukuranController extends Controller
             'vitamin_a'=>'required',
             'asi'=>'required',
             'pmt_ke'=>'required',
-            'sumber_pmt'=>'required',
-            'tgl_pemberian'=>'required'
+            'sumber_pmt'=>'required'
         ]);
 
         Pengukuran::create($request->all());

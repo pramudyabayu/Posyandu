@@ -73,21 +73,21 @@
                 <span class="nav-link-text">Kader</span>
               </a>
             </li>
-            <li class="nav-item dropdown {{ Request::segment(1) === 'Keuangan' ? 'active' : null }}">
+            <!-- <li class="nav-item dropdown {{ Request::segment(1) === 'Keuangan' ? 'active' : null }}">
               <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                   aria-expanded="false">
                   <i class="ni ni-circle-08 text-orange"></i>
                   <span>Keuangan</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                  <a class="dropdown-item {{ Request::segment(1) === 'Keuangan' ? 'active' : null }}" href="/pemasukan">
-                    <i class="ni ni-circle-08 text-orange"></i> Pemasukan</a>
+                  <a class="dropdown-item {{ Request::segment(1) === 'Keuangan' ? 'active' : null }}" href="/sumber-pemasukan">
+                    <i class="ni ni-circle-08 text-orange"></i> Sumber Pemasukan</a>
                   <a class="dropdown-item {{ Request::segment(1) === 'Keuangan' ? 'active' : null }}" href="/pengeluaran">
                     <i class="ni ni-circle-08 text-orange"></i> Pengeluaran</a>
                   <a class="dropdown-item {{ Request::segment(1) === 'Keuangan' ? 'active' : null }}" href="/laporan">
                     <i class="ni ni-circle-08 text-orange"></i> Laporan</a>
               </div>
-          </li>
+          </li> -->
           </ul>
           <!-- Divider -->
           <hr class="my-3">
@@ -104,7 +104,7 @@
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Search form -->
-          <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+          <!-- <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
             <div class="form-group mb-0">
               <div class="input-group input-group-alternative input-group-merge">
                 <div class="input-group-prepend">
@@ -116,7 +116,7 @@
             <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
-          </form>
+          </form> -->
           <!-- Navbar links -->
           <ul class="navbar-nav align-items-center  ml-md-auto ">
             <li class="nav-item d-xl-none">
@@ -183,6 +183,7 @@
   <script src="{{asset('assets/vendor/chart.js/dist/Chart.extension.js')}}"></script>
   <!-- Argon JS -->
   <script src="{{asset('assets/js/argon.js?v=1.2.0')}}"></script>
+  <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 </body>
 
 </html>

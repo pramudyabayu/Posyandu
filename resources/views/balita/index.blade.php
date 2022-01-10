@@ -67,7 +67,7 @@
                 <th scope="col" class="sort" data-sort="alamat">Alamat</th>
                 <th scope="col" class="sort" data-sort="rt">RT</th>
                 <th scope="col" class="sort" data-sort="rw">RW</th>
-                <th scope="col" class="sort" data-sort="rw">Aksi</th>
+                <th scope="col" class="sort" data-sort="rw"></th>
               </tr>
             </thead>
             <tbody>

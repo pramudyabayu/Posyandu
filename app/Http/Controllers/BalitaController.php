@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Balita;
 use Illuminate\Http\Request;
 use App\Exports\BalitaExport;
+use Illuminate\Support\Facades\DB;
 use Excel;
 use PDF;
 
@@ -51,7 +52,7 @@ class BalitaController extends Controller
         ]);
 
         Balita::create($request->all());
-        return redirect()->route('balita.index')->with('success', 'Data Balita Berhasil Ditambahkan!');
+        return redirect()->route('balita.index')->with('toast_success', 'Data Balita Berhasil Ditambahkan!');
     }
 
     public function show($id)
@@ -175,7 +176,7 @@ class BalitaController extends Controller
         ]);
         Balita::where('id', $request->id)
             ->update($validasi);
-        return redirect()->route ('balita.index')->with('success', 'Data Balita Berhasil Diupdate!');
+        return redirect()->route ('balita.index')->with('toast_success', 'Data Balita Berhasil Diupdate!');
     }
 
     public function destroy($id)

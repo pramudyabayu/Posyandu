@@ -8,7 +8,7 @@
           <span aria-hidden="true">×</span>
         </button>
       </div>
-      <form actioin="/imunisasi/update" method="POST">
+      <form action="/imunisasi/update" method="POST">
         @csrf
       <div class="modal-body">
         <div class="col-12 section">
