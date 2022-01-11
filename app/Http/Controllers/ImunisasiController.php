@@ -90,7 +90,7 @@ class ImunisasiController extends Controller
     public function destroy($id)
     {
         Imunisasi::destroy($id);
-        return redirect('/imunisasi')->with('success','Data Imunisasi berhasil dihapus!');
+        return redirect('/imunisasi')->with('toast_success','Data Imunisasi berhasil dihapus!');
     }
 
     public function exportpdf()

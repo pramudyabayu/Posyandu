@@ -53,7 +53,7 @@ class JadwalController extends Controller
     public function destroy($id)
     {
         Jadwal::destroy($id);
-        return redirect('/jadwal');
+        return redirect('/jadwal')->with('toast_success','Jadwal berhasil dihapus!');;
     }
 
 }

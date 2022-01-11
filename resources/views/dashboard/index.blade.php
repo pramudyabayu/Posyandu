@@ -8,8 +8,8 @@
           <div class="col-lg-6 col-7">
             <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
               <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/home"><i class="fas fa-home"></i></a></li>
+                <li class="breadcrumb-item"><a href="/home">Dashboard</a></li>
                 <li class="breadcrumb-item active" aria-current="page">Selamat Datang di SIPOSYANDU</li>
               </ol>
             </nav>
@@ -34,10 +34,11 @@
                 </div>
                 <div class="d-flex justify-content-center" >
                   <p class="mt-3 mb-0 text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
-                </p>
-              </div>
+                      <a href="/balita" class="justify-content-center text-decoration-none">
+                          Info lebih lanjut <i class="fa fa-arrow-circle-right"></i>
+                      </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div> 
@@ -58,10 +59,11 @@
                 </div>
                 <div class="d-flex justify-content-center" >
                   <p class="mt-3 mb-0 text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
-                </p>
-              </div>
+                      <a href="/pengukuran" class="justify-content-center text-decoration-none">
+                          Info lebih lanjut <i class="fa fa-arrow-circle-right"></i>
+                      </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -82,10 +84,11 @@
                 </div>
                 <div class="d-flex justify-content-center" >
                   <p class="mt-3 mb-0 text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
-                </p>
-              </div>
+                      <a href="/imunisasi" class="justify-content-center text-decoration-none">
+                          Info lebih lanjut <i class="fa fa-arrow-circle-right"></i>
+                      </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -106,10 +109,11 @@
                 </div>
                 <div class="d-flex justify-content-center" >
                   <p class="mt-3 mb-0 text-sm">
-                  <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
-                  <span class="text-nowrap">Since last month</span>
-                </p>
-              </div>
+                      <a href="/kader" class="justify-content-center text-decoration-none">
+                          Info lebih lanjut <i class="fa fa-arrow-circle-right"></i>
+                      </a>
+                  </p>
+                </div>
               </div>
             </div>
           </div>

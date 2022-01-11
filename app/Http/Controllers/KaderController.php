@@ -18,6 +18,8 @@ class KaderController extends Controller
     
         public function store(Request $request)
         {
+           
+
             $request->validate([
                 'nama_kader'=>'required',
                 'no_hp_kader'=>'required',
@@ -52,7 +54,7 @@ class KaderController extends Controller
         public function destroy($id)
         {
             Kader::destroy($id);
-            return redirect('/kader')->with('success','Data Kader Posyandu berhasil dihapus!');
+            return redirect('/kader')->with('toast_success','Data Kader Posyandu berhasil dihapus!');
         }
 
         public function exportpdf()

@@ -39,7 +39,7 @@ class BalitaController extends Controller
             'jenis_kelamin'=> 'required',
             'no_kk'=> 'required',
             'nik_balita'=> 'required',
-            'bb_lahir'=> 'required',
+            'bb_lahir',
             'tb_lahir'=> 'required',
             'kia'=> 'required',
             'imd'=> 'required',

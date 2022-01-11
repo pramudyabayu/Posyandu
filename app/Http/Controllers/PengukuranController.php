@@ -229,7 +229,7 @@ class PengukuranController extends Controller
     public function destroy($id)
     {
         Pengukuran::destroy($id);
-        return redirect('/pengukuran')->with('success','Data Pengukuran berhasil dihapus!');
+        return redirect('/pengukuran')->with('toast_success','Data Pengukuran Balita berhasil dihapus!');
     }
 
     public function exportpdf()

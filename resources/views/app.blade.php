@@ -44,6 +44,12 @@
               </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link {{ Request::segment(1) === 'jadwal' ? 'active' : null }}" href="/jadwal">
+                <i class="ni ni-calendar-grid-58 text-orange"></i>
+                <span class="nav-link-text">Jadwal</span>
+              </a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link {{ Request::segment(1) === 'balita' ? 'active' : null }}" href="/balita">
                 <i class="ni ni-single-02 text-orange"></i>
                 <span class="nav-link-text">Balita</span>
@@ -59,12 +65,6 @@
               <a class="nav-link {{ Request::segment(1) === 'imunisasi' ? 'active' : null }}" href="/imunisasi">
                 <i class="ni ni-ambulance text-orange"></i>
                 <span class="nav-link-text">Imunisasi</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link {{ Request::segment(1) === 'jadwal' ? 'active' : null }}" href="/jadwal">
-                <i class="ni ni-calendar-grid-58 text-orange"></i>
-                <span class="nav-link-text">Jadwal</span>
               </a>
             </li>
             <li class="nav-item">
